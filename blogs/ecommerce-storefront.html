@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How I Built a Full-Stack E-commerce Storefront</title>
+    <meta
+      name="description"
+      content="A full-stack e-commerce project using React, Node.js, and Express."
+    />
+    <meta name="author" content="James Dagless" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <style>
+      .blog-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 6px;
+        margin: 1.5rem 0;
+      }
+      .blog-content figure {
+        margin: 1.5rem 0;
+      }
+      .blog-content figcaption {
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 0.5rem;
+      }
+
+      pre {
+        background-color: #1e1e1e;
+        color: #f8f8f2;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      code {
+        font-family: "Fira Code", monospace;
+        color: #dcdcaa;
+      }
+
+      code.language-js {
+        color: #dcdcaa;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo"><a href="../../index.html">James Dagless</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="../../services.html">Services</a></li>
+            <li><a href="../../projects.html">Projects</a></li>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+            <li><a href="../index.html">Blog</a></li>
+            <li>
+              <a href="../../contact.html" class="button primary">Hire Me</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main Blog Content -->
+      <section class="wrapper style1">
+        <div class="container blog-content">
+          <header class="major">
+            <h2>
+              How I Built a Full-Stack E-commerce Storefront with React and
+              Node.js
+            </h2>
+            <p>React + Node.js + Express + JSON API</p>
+          </header>
+
+          <p>
+            In this project, I set out to build a fully responsive e-commerce
+            storefront using a full-stack approach — React on the front-end and
+            Node.js with Express on the back-end. My goal was to turn a static
+            site into a dynamic shopping experience with product listings, cart
+            logic, and an API-based data source.
+          </p>
+
+          <h3>Starting with Static HTML/CSS/JS</h3>
+          <p>I began by designing the structure using 5 main sections:</p>
+          <ul>
+            <li>Banner</li>
+            <li>Header</li>
+            <li>Hero Section</li>
+            <li>Product Grid</li>
+            <li>Footer</li>
+          </ul>
+
+          <figure>
+            <img src="images/ecommerce/image1.png" alt="Banner layout" />
+            <figcaption>
+              Static sections in this case the navigation.
+            </figcaption>
+          </figure>
+
+          <p>
+            The product listings were created using JavaScript and injected into
+            the DOM dynamically from a static array:
+          </p>
+
+          <pre><code class="language-js">
+        // Product data
+        const products = [
+            {
+                id: 1,
+                name: "Wireless Headphones",
+                price: "£89.99",
+                originalPrice: "£119.99",
+                emoji: "🎧",
+                description: "Premium noise-canceling headphones"
+            },
+            {
+                id: 2,
+                name: "Smart Watch",
+                price: "£199.99",
+                originalPrice: "£249.99",
+                emoji: "⌚",
+                description: "Fitness tracking with style"
+            },
+            {
+                id: 3,
+                name: "Bluetooth Speaker",
+                price: "£49.99",
+                originalPrice: "£69.99",
+                emoji: "🔊",
+                description: "Portable premium sound"
+            },
+            {
+                id: 4,
+                name: "Smartphone",
+                price: "£299.99",
+                originalPrice: "£399.99",
+                emoji: "📱",
+                description: "Latest technology in your pocket"
+            },
+            {
+                id: 5,
+                name: "Laptop Stand",
+                price: "£39.99",
+                originalPrice: "£59.99",
+                emoji: "💻",
+                description: "Ergonomic workspace solution"
+            },
+            {
+                id: 6,
+                name: "Wireless Charger",
+                price: "£29.99",
+                originalPrice: "£44.99",
+                emoji: "🔋",
+                description: "Fast wireless charging pad"
+            }
+        ];    
+          </code></pre>
+
+          <p>Each product had a button that triggered a cart notification:</p>
+          <figure>
+            <img
+              src="./cart-notification.png"
+              alt="Cart notification example"
+            />
+            <figcaption>Custom JS notification system</figcaption>
+          </figure>
+
+          <h3>Rebuilding as a React App</h3>
+          <p>
+            I split the static components into reusable React components — like
+            <code>Banner.jsx</code>, <code>Navbar.jsx</code>, and
+            <code>ProductList.jsx</code> — and styled them via a global
+            stylesheet.
+          </p>
+
+          <figure>
+            <img src="images/ecommerce/component.png" alt="React component file structure" />
+            <figcaption>
+              Client-side folder structure with reusable components
+            </figcaption>
+          </figure>
+
+          <h3>Introducing Backend with Node + Express</h3>
+          <p>
+            I created a lightweight Express server to deliver product data via a
+            JSON file:
+          </p>
+          <ul>
+            <li>Set up <code>products.json</code></li>
+            <li>Created a <code>/api/products</code> route</li>
+            <li>Enabled CORS so React could fetch from localhost</li>
+          </ul>
+
+          <figure>
+            <img src="./server-code.png" alt="Express server code" />
+            <figcaption>Backend API delivering data to the frontend</figcaption>
+          </figure>
+
+          <h3>Replacing Static with Dynamic Data</h3>
+          <p>
+            On the frontend, I replaced the static array with a
+            <code>useEffect()</code> hook to fetch live data from the backend.
+          </p>
+
+          <figure>
+            <img
+              src="./useeffect-fetch.png"
+              alt="React useEffect fetch example"
+            />
+            <figcaption>Data loaded from backend on mount</figcaption>
+          </figure>
+
+          <h3>What I Learned</h3>
+          <ul>
+            <li>React component structure and state management</li>
+            <li>Building a simple REST API with Express</li>
+            <li>Using CORS and fetch to connect client and server</li>
+            <li>Planning for scalability with JSON data (future MongoDB)</li>
+          </ul>
+
+          <p>
+            Next steps: deploy to Vercel (client) and Render (server), add
+            MongoDB, and build user login + persistent cart storage.
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon brands fa-linkedin-in"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon solid fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+        <p>&copy; James Dagless. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>

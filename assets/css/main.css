@@ -4109,3 +4109,17 @@ input, select, textarea {
 					}
 
 	}
+
+.post-card h2 a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.post-card h2 a:hover {
+  color: #ff4b82;
+  text-shadow:
+    0 0 5px #ff4b82,
+    0 0 10px #ff4b82,
+    0 0 20px #ff4b82;
+}
