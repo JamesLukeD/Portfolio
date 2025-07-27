@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How I fixed subdirectory issue with React.</title>
+    <meta
+      name="description"
+      content="Fixing git sub-directory issue"
+    />
+    <meta name="author" content="James Dagless" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <style>
+      .blog-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 6px;
+        margin: 1.5rem 0;
+      }
+      .blog-content figure {
+        margin: 1.5rem 0;
+      }
+      .blog-content figcaption {
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 0.5rem;
+      }
+
+      pre {
+        background-color: #1e1e1e;
+        color: #f8f8f2;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      code {
+        font-family: "Fira Code", monospace;
+        color: #dcdcaa;
+      }
+
+      code.language-js {
+        color: #dcdcaa;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo"><a href="../../index.html">James Dagless</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="../../services.html">Services</a></li>
+            <li><a href="../../projects.html">Projects</a></li>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+            <li><a href="../index.html">Blog</a></li>
+            <li>
+              <a href="../../contact.html" class="button primary">Hire Me</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main Blog Content -->
+      <section class="wrapper style1">
+        <div class="container blog-content">
+          <header class="major">
+            <h2>
+              Fixing a Git Subdirectory Treated as a Separate Repo
+            </h2>
+            <p>In this mini blog, I’ll explain a frustrating Git issue I ran into while building my e-commerce site, my `client` folder kept getting treated like its own Git repository.</p>
+          </header>
+
+          <p>
+            At first, I tried deleting the `.git` folder inside the `client` directory, thinking that would fix the issue. But even after reinitializing Git and trying again, the problem persisted. Git kept treating `client/` like a sub-module or separate repo.
+          </p>
+
+          <p>In the process, I accidentally deleted my entire project folder (oops...), so I decided to take that as a sign to start fresh and rebuild everything from scratch, the right way this time.</p>
+
+          <h3>Starting Over — Folder Structure</h3>
+          <p>From the root, I recreated my project layout like this:</p>
+          <pre><code>
+            mkdir techstoreapp
+            cd techstoreapp
+            mkdir client server
+          </code></pre>
+
+          <p>I went into my server directory to set up the express server and set up the React client inside the client directory</p>
+          <p>Inside the client directory:</p>
+          <pre><code>
+            npx create-react-app .
+          </code></pre>
+
+          <p>Inside the server directory:</p>
+          <pre><code>
+            cd server
+            npm init -y
+            npm install express cors
+          </code></pre>
+
+          <p>I then initalised the git and added all the files and commited it into the repo</p>
+          <pre><code>
+            git init
+            git add .
+            git commit -m "Initial commit - React + Express boilerplate"
+          </code></pre>
+
+          <p>and linked it to my Github Repo</p>
+          <pre><code>
+            git remote add origin https://github.com/YOUR_USERNAME/techstoreapp.git
+            git branch -M main
+            git push -u origin main
+          </code></pre>
+
+          <p>But, i was still getting issues with the git adding the client folder as a sub-directory inside my repository which didn't contain any folders again...</p>
+
+          <h3>Setting Up the React Client From Root</h3>
+          <p>The mistake I made before was creating the `client/` directory manually and then running:</p>
+          <pre><code>
+            npx create-react-app .
+          </code></pre>
+          <p>...**inside that folder**, which caused Git tracking issues and a messed up structure on GitHub.</p>
+
+          <p>This time, I stayed in the root and ran:</p>
+          <pre><code>
+            npx create-react-app client
+          </code></pre>
+
+          <p>That created the `client/` folder and initialized the React app properly. It also avoided any Git confusion.</p>
+          <p>Then, I initialized Git from the root and pushed everything to GitHub:</p>
+          <pre><code>
+            git add client
+            git commit -m "Add React client app"
+            git push
+          </code></pre>
+
+          <p>Horayy. Once i'd created the react application at the same time as the directory it had correctly initialised onto the GitHub repository. </p>
+          <img src="images/ecommerce/git.png" alt="Successful Git directory structure.">
+
+          <p>Once I let `create-react-app` generate the folder from the root, instead of running it inside an existing empty directory — everything worked fine. Git tracked the folder correctly, and GitHub displayed all the files
+            <br>
+            I’m still not 100% sure what caused the original issue (it didn’t seem like a true submodule), but this approach resolved it.</p>
+        
+            <h3>Final Tip</h3>
+            <p><strong>Back up your folders before experimenting with Git.</strong>
+Deleting `.git` or running `git rm -f` can wipe your files completely. If you’re running into Git ignoring or misreading your folders, try rebuilding the directory and letting `create-react-app` do its job from the root level.</p>
+
+        </section>
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon brands fa-linkedin-in"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon solid fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+        <p>&copy; James Dagless. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
