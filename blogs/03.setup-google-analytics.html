@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How I Built a Full-Stack E-commerce Storefront</title>
+    <meta
+      name="description"
+      content="A full-stack e-commerce project using React, Node.js, and Express."
+    />
+    <meta name="author" content="James Dagless" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <style>
+      .blog-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 6px;
+        margin: 1.5rem 0;
+      }
+      .blog-content figure {
+        margin: 1.5rem 0;
+      }
+      .blog-content figcaption {
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 0.5rem;
+      }
+
+      pre {
+        background-color: #1e1e1e;
+        color: #f8f8f2;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      code {
+        font-family: "Fira Code", monospace;
+        color: #dcdcaa;
+      }
+
+      code.language-js {
+        color: #dcdcaa;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo"><a href="../../index.html">James Dagless</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="../../services.html">Services</a></li>
+            <li><a href="../../projects.html">Projects</a></li>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+            <li><a href="../index.html">Blog</a></li>
+            <li>
+              <a href="../../contact.html" class="button primary">Hire Me</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main Blog Content -->
+      <section class="wrapper style1">
+        <div class="container blog-content">
+          <header class="major">
+            <h2>
+              How I set up Google Analytics with my GitHub Portfolio
+            </h2>
+            <p>In this blog I'm going to show you how to set up your own Google Analytics tracking to any of your personal projects, portfolios or any website you want!</p>
+          </header>
+
+          <p>First, I set up a Google Analytics account by logging in using my Google Gmail Single Sign-on Account (SSO).</p>
+          <p>In the admin account click on the create button located on the top left hand side of the screen and select property.</p>
+          <img src="images/setup-google-analytics/01googleAnalytics.png" alt="Create a new property">
+
+          <p>Enter your property name, timezone and currency. </p>
+          <p>Step 2 is to fill out your business details if you're not sure about your industry category you can just fill out 'Other Business Activity'</p>
+          <img src="images/setup-google-analytics/02googleAnalytics.png" alt="Enter propety details">
+
+          <p>“If you're running an e-commerce site, you might choose options like ‘Drive sales’ or ‘Generate leads’. For a personal portfolio, I selected options like ‘Understand web traffic’ and ‘View user engagement’.” </p>
+          <img src="images/setup-google-analytics/03googleAnalytics.png" alt="Select data stream type">
+
+          <p>For the next step select web and fill out your websites URL and stream name this can just be something like 'My portfolio site'.</p>
+          <img src="images/setup-google-analytics/04googleAnalytics.png" alt="fill out details">
+          <img src="images/setup-google-analytics/05googleAnalytics.png" alt="continue on details">
+
+          <p>Once you've got your Google tag information you can copy and paste this at the bottom of each page of your website. This is at the end of your code just before the /body tag.</p>
+          <pre><code>
+&lt;!-- Google tag (gtag.js) --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-EZQQG81GBC"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EZQQG81GBC');
+&lt;/script&gt;
+</code></pre>
+
+          <img src="images/setup-google-analytics/06googleAnalytics.png" alt="code block">
+
+          <p>If you're working with a content management system (CMS) such as WordPress you can install a WordPress plugin for GA4 and log in the Google Gmail used to create the stream and WordPress or other CMS platforms will automatically update the code to input this Google tag inside.</p>
+          <p>You may need to wait up to 24 hours for your GA4 to catchup with the updates, moving around your website and going through various pages can help with this process to pick up some activity. </p>
+          <p>Once it has updated your dashboard on Google Analytics should look something like this: </p>
+          <img src="images/setup-google-analytics/07googleAnalytics.png" alt="Dashboard View">
+
+          <p>The more data it collects the more you can start using that data to predict where the majority of users are directed and where you can start updating or creating AD campaigns etc.</p>
+          <p>I hope this tutorial has helped you to understand GA4 and the ease of access to start getting your website up and running collecting data and how users are viewing your website.</p>
+
+        </section>
+
+
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon brands fa-linkedin-in"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon solid fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+        <p>&copy; James Dagless. All rights reserved.</p>
+      </footer>
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YGSCEDLDEY"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-YGSCEDLDEY");
+    </script>
+  </body>
+</html>
