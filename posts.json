@@ -1,18 +1,26 @@
 [
   {
     "title": "How I Built a Full-Stack E-commerce Storefront",
-    "url": "blogs/01.ecommerce-storefront.html"
+    "url": "blogs/01.ecommerce-storefront.html",
+    "image": "images/blog-images/ecommerce-storefront.png",
+    "excerpt": "A breakdown of how I built a full-stack React + Node app with a JSON API backend and product cart logic."
   },
   {
     "title": "Fixing a Git Subdirectory Treated as a Separate Repo",
-    "url": "blogs/02.fixing-git-subdirectory-issue.html"
+    "url": "blogs/02.fixing-git-subdirectory-issue.html",
+    "image": "images/blog-images/component.png",
+    "excerpt": "A frustrating Git issue I ran into while building my e-commerce site — my client folder kept getting treated like its own Git repo."
   },
   {
     "title": "Setting up Google Analytics with GitHub site",
-    "url": "blogs/03.setup-google-analytics.html"
+    "url": "blogs/03.setup-google-analytics.html",
+    "image": "blogs/images/setup-google-analytics/05googleAnalytics.png",
+    "excerpt": "In this blog I’ll go through how to set up Google Analytics with your GitHub Pages portfolio site."
   },
   {
     "title": "Setting up Google Search Console With your Site",
-    "url": "blogs/04.How-to-set-up-google-search-console.html"
+    "url": "blogs/04.How-to-set-up-google-search-console.html",
+    "image": "blogs/images/04.Search-console/searchConsole6.png",
+    "excerpt": "This article goes through setting up Google Search Console with your GitHub-hosted website."
   }
 ]
