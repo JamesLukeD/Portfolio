@@ -1,0 +1,18 @@
+[
+  {
+    "title": "How I Built a Full-Stack E-commerce Storefront",
+    "url": "blogs/01.ecommerce-storefront.html"
+  },
+  {
+    "title": "Fixing a Git Subdirectory Treated as a Separate Repo",
+    "url": "blogs/02.fixing-git-subdirectory-issue.html"
+  },
+  {
+    "title": "Setting up Google Analytics with GitHub site",
+    "url": "blogs/03.setup-google-analytics.html"
+  },
+  {
+    "title": "Setting up Google Search Console With your Site",
+    "url": "blogs/04.How-to-set-up-google-search-console.html"
+  }
+]
