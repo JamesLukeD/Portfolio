@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="description" content="How I Built a Full-Stack E-commerce Storefront">
+    <meta
+      name="description"
+      content="How I Built a Full-Stack E-commerce Storefront"
+    />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>How I Built a Full-Stack E-commerce Storefront</title>
     <meta
       name="description"
@@ -11,41 +14,276 @@
     />
     <meta name="author" content="James Dagless" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-something"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    
     <style>
-      .blog-content img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 6px;
-        margin: 1.5rem 0;
-      }
-      .blog-content figure {
-        margin: 1.5rem 0;
-      }
-      .blog-content figcaption {
-        font-style: italic;
-        font-size: 0.9rem;
-        color: #777;
-        margin-top: 0.5rem;
+      .blog-hero {
+        background: linear-gradient(135deg, #0f1117 0%, #1a1d26 50%, #2a2d3a 100%);
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
       }
 
-      pre {
-        background-color: #1e1e1e;
-        color: #f8f8f2;
-        padding: 1rem;
-        border-radius: 8px;
-        overflow-x: auto;
+      .blog-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="0.3" fill="%23e44c65" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+        pointer-events: none;
+      }
+
+      .blog-hero h1 {
+        font-size: 2.5rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+        line-height: 1.2;
+      }
+
+      .blog-hero .tech-stack {
+        font-size: 1.1rem;
+        color: #e44c65;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+        font-weight: 500;
+      }
+
+      .blog-hero .date {
+        color: #b8b8b8;
         font-size: 0.95rem;
-        line-height: 1.6;
+        position: relative;
+        z-index: 2;
+      }
+
+      .back-button {
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(228, 76, 101, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 2rem 0;
+      }
+
+      .back-button:hover {
+        background: linear-gradient(45deg, #d63651, #e44c65);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.4);
+      }
+
+      .blog-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      .blog-content {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+      }
+
+      .blog-content h2 {
+        color: #ffffff;
+        font-size: 2rem;
+        margin: 2rem 0 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .blog-content h3 {
+        color: #e44c65;
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .blog-content h3::before {
+        content: '▶';
+        color: #e44c65;
+        font-size: 0.8rem;
+      }
+
+      .blog-content p {
+        color: #b8b8b8;
+        line-height: 1.8;
+        font-size: 1.05rem;
         margin-bottom: 1.5rem;
       }
 
-      code {
-        font-family: "Fira Code", monospace;
-        color: #dcdcaa;
+      .blog-content ul {
+        color: #b8b8b8;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
       }
 
-      code.language-js {
+      .blog-content li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .blog-content li::before {
+        content: '●';
+        color: #e44c65;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .blog-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin: 2rem 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-content figure {
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .blog-content figcaption {
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        border-left: 3px solid #e44c65;
+      }
+
+      pre {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        color: #f8f8f2;
+        padding: 2rem;
+        border-radius: 12px;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 2rem 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      pre::before {
+        content: 'JavaScript';
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        background: #e44c65;
+        color: white;
+        padding: 0.2rem 0.8rem;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      code {
+        font-family: "Fira Code", "Consolas", monospace;
+        background: rgba(228, 76, 101, 0.1);
+        color: #e44c65;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+
+      pre code {
+        background: none;
         color: #dcdcaa;
+        padding: 0;
+      }
+
+      .section-divider {
+        height: 2px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        margin: 3rem 0;
+        border-radius: 1px;
+        opacity: 0.3;
+      }
+
+      .key-learnings {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+        border-left: 4px solid #e44c65;
+      }
+
+      .key-learnings h3 {
+        color: #e44c65;
+        margin-top: 0;
+      }
+
+      .next-steps {
+        background: rgba(228, 76, 101, 0.1);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+        border: 1px solid rgba(228, 76, 101, 0.3);
+      }
+
+      .next-steps h3 {
+        color: #ff6b8a;
+        margin-top: 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        .blog-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-content {
+          padding: 2rem;
+        }
+
+        .blog-container {
+          padding: 2rem 1rem;
+        }
+
+        pre {
+          padding: 1rem;
+          font-size: 0.8rem;
+        }
       }
     </style>
   </head>
@@ -56,32 +294,38 @@
         <h1 id="logo"><a href="../index.html">James Dagless</a></h1>
         <nav id="nav">
           <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
             <li><a href="../services.html">Services</a></li>
             <li><a href="../projects.html">Projects</a></li>
-            <li><a href="../about.html">About</a></li>
+            <li><a href="../blog.html" class="current">Blog</a></li>
             <li><a href="../contact.html">Contact</a></li>
-            <li><a href="../index.html">Blog</a></li>
-            <li>
-              <a href="../contact.html" class="button primary">Hire Me</a>
-            </li>
+            <li><a href="../contact.html" class="button primary">Hire Me</a></li>
           </ul>
         </nav>
       </header>
 
-      <a href="../blog.html" class="button">← Back to Blog</a>
+      <!-- Blog Hero -->
+      <section class="blog-hero">
+        <h1>How I Built a Full-Stack E-commerce Storefront with React and Node.js</h1>
+        <p class="tech-stack">
+          <i class="fab fa-react"></i> React + 
+          <i class="fab fa-node-js"></i> Node.js + 
+          <i class="fas fa-server"></i> Express + 
+          <i class="fas fa-database"></i> JSON API
+        </p>
+        <p class="date">
+          <i class="fas fa-calendar"></i> Published: January 2024
+        </p>
+      </section>
 
+      <!-- Main Content -->
+      <div class="blog-container">
+        <a href="../blog.html" class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Blog
+        </a>
 
-      <!-- Main Blog Content -->
-      <section class="wrapper style1">
-        <div class="container blog-content">
-          <header class="major">
-            <h2>
-              How I Built a Full-Stack E-commerce Storefront with React and
-              Node.js
-            </h2>
-            <p>React + Node.js + Express + JSON API</p>
-          </header>
-
+        <div class="blog-content">
           <p>
             In this project, I set out to build a fully responsive e-commerce
             storefront using a full-stack approach — React on the front-end and
@@ -90,7 +334,9 @@
             logic, and an API-based data source.
           </p>
 
-          <h3>Starting with Static HTML/CSS/JS</h3>
+          <div class="section-divider"></div>
+
+          <h3><i class="fas fa-play"></i> Starting with Static HTML/CSS/JS</h3>
           <p>I began by designing the structure using 5 main sections:</p>
           <ul>
             <li>Banner</li>
@@ -113,57 +359,57 @@
           </p>
 
           <pre><code class="language-js">
-        // Product data
-        const products = [
-            {
-                id: 1,
-                name: "Wireless Headphones",
-                price: "£89.99",
-                originalPrice: "£119.99",
-                emoji: "🎧",
-                description: "Premium noise-canceling headphones"
-            },
-            {
-                id: 2,
-                name: "Smart Watch",
-                price: "£199.99",
-                originalPrice: "£249.99",
-                emoji: "⌚",
-                description: "Fitness tracking with style"
-            },
-            {
-                id: 3,
-                name: "Bluetooth Speaker",
-                price: "£49.99",
-                originalPrice: "£69.99",
-                emoji: "🔊",
-                description: "Portable premium sound"
-            },
-            {
-                id: 4,
-                name: "Smartphone",
-                price: "£299.99",
-                originalPrice: "£399.99",
-                emoji: "📱",
-                description: "Latest technology in your pocket"
-            },
-            {
-                id: 5,
-                name: "Laptop Stand",
-                price: "£39.99",
-                originalPrice: "£59.99",
-                emoji: "💻",
-                description: "Ergonomic workspace solution"
-            },
-            {
-                id: 6,
-                name: "Wireless Charger",
-                price: "£29.99",
-                originalPrice: "£44.99",
-                emoji: "🔋",
-                description: "Fast wireless charging pad"
-            }
-        ];    
+// Product data
+const products = [
+    {
+        id: 1,
+        name: "Wireless Headphones",
+        price: "£89.99",
+        originalPrice: "£119.99",
+        emoji: "🎧",
+        description: "Premium noise-canceling headphones"
+    },
+    {
+        id: 2,
+        name: "Smart Watch",
+        price: "£199.99",
+        originalPrice: "£249.99",
+        emoji: "⌚",
+        description: "Fitness tracking with style"
+    },
+    {
+        id: 3,
+        name: "Bluetooth Speaker",
+        price: "£49.99",
+        originalPrice: "£69.99",
+        emoji: "🔊",
+        description: "Portable premium sound"
+    },
+    {
+        id: 4,
+        name: "Smartphone",
+        price: "£299.99",
+        originalPrice: "£399.99",
+        emoji: "📱",
+        description: "Latest technology in your pocket"
+    },
+    {
+        id: 5,
+        name: "Laptop Stand",
+        price: "£39.99",
+        originalPrice: "£59.99",
+        emoji: "💻",
+        description: "Ergonomic workspace solution"
+    },
+    {
+        id: 6,
+        name: "Wireless Charger",
+        price: "£29.99",
+        originalPrice: "£44.99",
+        emoji: "🔋",
+        description: "Fast wireless charging pad"
+    }
+];    
           </code></pre>
 
           <p>Each product had a button that triggered a cart notification:</p>
@@ -175,7 +421,9 @@
             <figcaption>Custom JS notification system</figcaption>
           </figure>
 
-          <h3>Rebuilding as a React App</h3>
+          <div class="section-divider"></div>
+
+          <h3><i class="fab fa-react"></i> Rebuilding as a React App</h3>
           <p>
             I split the static components into reusable React components — like
             <code>Banner.jsx</code>, <code>Navbar.jsx</code>, and
@@ -193,7 +441,9 @@
             </figcaption>
           </figure>
 
-          <h3>Introducing Backend with Node + Express</h3>
+          <div class="section-divider"></div>
+
+          <h3><i class="fas fa-server"></i> Introducing Backend with Node + Express</h3>
           <p>
             I created a lightweight Express server to deliver product data via a
             JSON file:
@@ -209,7 +459,9 @@
             <figcaption>Backend API delivering data to the frontend</figcaption>
           </figure>
 
-          <h3>Replacing Static with Dynamic Data</h3>
+          <div class="section-divider"></div>
+
+          <h3><i class="fas fa-sync-alt"></i> Replacing Static with Dynamic Data</h3>
           <p>
             On the frontend, I replaced the static array with a
             <code>useEffect()</code> hook to fetch live data from the backend.
@@ -223,41 +475,79 @@
             <figcaption>Data loaded from backend on mount</figcaption>
           </figure>
 
-          <h3>What I Learned</h3>
-          <ul>
-            <li>React component structure and state management</li>
-            <li>Building a simple REST API with Express</li>
-            <li>Using CORS and fetch to connect client and server</li>
-            <li>Planning for scalability with JSON data (future MongoDB)</li>
-          </ul>
+          <div class="key-learnings">
+            <h3><i class="fas fa-lightbulb"></i> What I Learned</h3>
+            <ul>
+              <li>React component structure and state management</li>
+              <li>Building a simple REST API with Express</li>
+              <li>Using CORS and fetch to connect client and server</li>
+              <li>Planning for scalability with JSON data (future MongoDB)</li>
+            </ul>
+          </div>
 
-          <p>
-            Next steps: deploy to Vercel (client) and Render (server), add
-            MongoDB, and build user login + persistent cart storage.
-          </p>
+          <div class="next-steps">
+            <h3><i class="fas fa-rocket"></i> Next Steps</h3>
+            <p>
+              Deploy to Vercel (client) and Render (server), add
+              MongoDB, and build user login + persistent cart storage.
+            </p>
+          </div>
         </div>
-      </section>
+      </div>
+
+      </div>
 
       <!-- Footer -->
-      <footer id="footer">
-        <ul class="icons">
-          <li>
-            <a href="#" class="icon brands fa-linkedin-in"
-              ><span class="label">LinkedIn</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-github"
-              ><span class="label">GitHub</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon solid fa-envelope"
-              ><span class="label">Email</span></a
-            >
-          </li>
-        </ul>
-        <p>&copy; James Dagless. All rights reserved.</p>
+      <footer id="footer" class="modern">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Get In Touch</h3>
+              <p>
+                Ready to start your next project? I'd love to hear from you and
+                discuss how we can bring your ideas to life.
+              </p>
+            </section>
+            <section>
+              <h4>Follow Me</h4>
+              <ul class="plain">
+                <li>
+                  <a href="https://github.com/jamesdagless"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/jamesdagless"
+                    ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/jamesdagless"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h4>Contact Info</h4>
+              <ul class="alt">
+                <li>
+                  <h3>Email</h3>
+                  <a href="mailto:james@jamesdagless.co.uk"
+                    >james@jamesdagless.co.uk</a
+                  >
+                </li>
+                <li>
+                  <h3>Phone</h3>
+                  <p>Available upon request</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 James Dagless. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
     <!-- Google tag (gtag.js) -->

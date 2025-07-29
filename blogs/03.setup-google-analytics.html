@@ -4,45 +4,249 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="How I Built a Full-Stack E-commerce Storefront">
-    <title>How I Built a Full-Stack E-commerce Storefront</title>
+    <t      </header>
+
+      <!-- Blog Hero -->
+      <section class="blog-hero">
+        <h1>How I Set Up Google Analytics with My GitHub Portfolio</h1>
+        <p class="tech-stack">
+          <i class="fab fa-google"></i> Google Analytics + 
+          <i class="fab fa-github"></i> GitHub Pages + 
+          <i class="fas fa-chart-line"></i> GA4 + 
+          <i class="fas fa-code"></i> HTML Tracking
+        </p>
+        <p class="date">
+          <i class="fas fa-calendar"></i> Published: November 2023
+        </p>
+      </section>
+
+      <!-- Main Content -->
+      <div class="blog-container">
+        <a href="../blog.html" class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Blog
+        </a>
+
+        <div class="blog-content">
+          <p>
+            Setting up Google Analytics on your portfolio website is essential for understanding how visitors interact with your content. In this guide, I'll walk you through the process of integrating Google Analytics 4 (GA4) with your GitHub-hosted portfolio.
+          </p>
+
+          <div class="section-divider"></div>
+
+          <h3><i class="fas fa-rocket"></i> Getting Started with Google Analytics</h3>Built a Full-Stack E-commerce Storefront</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="James Dagless" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-something"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    
     <style>
-      .blog-content img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 6px;
-        margin: 1.5rem 0;
-      }
-      .blog-content figure {
-        margin: 1.5rem 0;
-      }
-      .blog-content figcaption {
-        font-style: italic;
-        font-size: 0.9rem;
-        color: #777;
-        margin-top: 0.5rem;
+      .blog-hero {
+        background: linear-gradient(135deg, #0f1117 0%, #1a1d26 50%, #2a2d3a 100%);
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
       }
 
-      pre {
-        background-color: #1e1e1e;
-        color: #f8f8f2;
-        padding: 1rem;
-        border-radius: 8px;
-        overflow-x: auto;
+      .blog-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="0.3" fill="%23e44c65" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+        pointer-events: none;
+      }
+
+      .blog-hero h1 {
+        font-size: 2.5rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+        line-height: 1.2;
+      }
+
+      .blog-hero .tech-stack {
+        font-size: 1.1rem;
+        color: #e44c65;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+        font-weight: 500;
+      }
+
+      .blog-hero .date {
+        color: #b8b8b8;
         font-size: 0.95rem;
-        line-height: 1.6;
+        position: relative;
+        z-index: 2;
+      }
+
+      .back-button {
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(228, 76, 101, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 2rem 0;
+      }
+
+      .back-button:hover {
+        background: linear-gradient(45deg, #d63651, #e44c65);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.4);
+      }
+
+      .blog-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      .blog-content {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+      }
+
+      .blog-content h2 {
+        color: #ffffff;
+        font-size: 2rem;
+        margin: 2rem 0 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .blog-content h3 {
+        color: #e44c65;
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .blog-content h3::before {
+        content: '▶';
+        color: #e44c65;
+        font-size: 0.8rem;
+      }
+
+      .blog-content p {
+        color: #b8b8b8;
+        line-height: 1.8;
+        font-size: 1.05rem;
         margin-bottom: 1.5rem;
       }
 
-      code {
-        font-family: "Fira Code", monospace;
-        color: #dcdcaa;
+      .blog-content ul {
+        color: #b8b8b8;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
       }
 
-      code.language-js {
-        color: #dcdcaa;
+      .blog-content li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .blog-content li::before {
+        content: '●';
+        color: #e44c65;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .blog-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin: 2rem 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .blog-content figure {
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .blog-content figcaption {
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        border-left: 3px solid #e44c65;
+      }
+
+      .section-divider {
+        height: 2px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        margin: 3rem 0;
+        border-radius: 1px;
+        opacity: 0.3;
+      }
+
+      .key-learnings {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+        border-left: 4px solid #e44c65;
+      }
+
+      .key-learnings h3 {
+        color: #e44c65;
+        margin-top: 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        .blog-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-content {
+          padding: 2rem;
+        }
+
+        .blog-container {
+          padding: 2rem 1rem;
+        }
       }
     </style>
   </head>
@@ -53,14 +257,13 @@
         <h1 id="logo"><a href="../index.html">James Dagless</a></h1>
         <nav id="nav">
           <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
             <li><a href="../services.html">Services</a></li>
             <li><a href="../projects.html">Projects</a></li>
-            <li><a href="../about.html">About</a></li>
+            <li><a href="../blog.html" class="current">Blog</a></li>
             <li><a href="../contact.html">Contact</a></li>
-            <li><a href="../index.html">Blog</a></li>
-            <li>
-              <a href="../contact.html" class="button primary">Hire Me</a>
-            </li>
+            <li><a href="../contact.html" class="button primary">Hire Me</a></li>
           </ul>
         </nav>
       </header>
@@ -119,25 +322,56 @@
 
 
       <!-- Footer -->
-      <footer id="footer">
-        <ul class="icons">
-          <li>
-            <a href="#" class="icon brands fa-linkedin-in"
-              ><span class="label">LinkedIn</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-github"
-              ><span class="label">GitHub</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon solid fa-envelope"
-              ><span class="label">Email</span></a
-            >
-          </li>
-        </ul>
-        <p>&copy; James Dagless. All rights reserved.</p>
+      <footer id="footer" class="modern">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Get In Touch</h3>
+              <p>
+                Ready to start your next project? I'd love to hear from you and
+                discuss how we can bring your ideas to life.
+              </p>
+            </section>
+            <section>
+              <h4>Follow Me</h4>
+              <ul class="plain">
+                <li>
+                  <a href="https://github.com/jamesdagless"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/jamesdagless"
+                    ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/jamesdagless"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h4>Contact Info</h4>
+              <ul class="alt">
+                <li>
+                  <h3>Email</h3>
+                  <a href="mailto:james@jamesdagless.co.uk"
+                    >james@jamesdagless.co.uk</a
+                  >
+                </li>
+                <li>
+                  <h3>Phone</h3>
+                  <p>Available upon request</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 James Dagless. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
     <!-- Google tag (gtag.js) -->

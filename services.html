@@ -4,8 +4,15 @@
     <title>Services | James Dagless</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Services page offered by James Dagles">
+    <meta name="description" content="Services page offered by James Dagles" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-something"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
@@ -14,16 +21,142 @@
         padding: 4rem 2rem;
       }
 
-      ul.features {
-        list-style: none;
-        padding-left: 0;
-        margin: 1em 0;
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
       }
 
-      ul.features li::before {
-        content: "•";
-        color: #ffdb4d;
-        margin-right: 0.5em;
+      .service-card {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(228, 76, 101, 0.2);
+      }
+
+      .service-card h3 {
+        color: #ffffff;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .service-card .icon {
+        font-size: 1.8rem;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .service-card p {
+        color: #b8b8b8;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-features {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .service-features li {
+        color: #ccc;
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .service-features li::before {
+        content: "✓";
+        color: #4caf50;
+        font-weight: bold;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(76, 175, 80, 0.1);
+        border-radius: 50%;
+        font-size: 0.8rem;
+      }
+
+      .service-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .price {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #e44c65;
+      }
+
+      .service-button {
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(228, 76, 101, 0.3);
+      }
+
+      .service-button:hover {
+        background: linear-gradient(45deg, #d63651, #e44c65);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.4);
+      }
+
+      .service-category {
+        background: rgba(228, 76, 101, 0.1);
+        color: #e44c65;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+
+      @media screen and (max-width: 768px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .service-card {
+          padding: 1.5rem;
+        }
       }
     </style>
   </head>
@@ -34,11 +167,12 @@
         <h1 id="logo"><a href="index.html">James Dagless</a></h1>
         <nav id="nav">
           <ul>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="projects.html">Projects</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html" class="current">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="contact.html" class="button primary">Hire Me</a></li>
           </ul>
         </nav>
@@ -60,83 +194,168 @@
       <!-- Services -->
       <section id="one" class="wrapper style1">
         <div class="inner">
-          <section>
-            <div class="content">
-              <h3>💬 Tawk.to Live Chat Setup</h3>
-              <ul class="features">
-                <li>Install & configure widget</li>
-                <li>Branding, welcome & offline messages</li>
-                <li>Mobile app setup & chat hours</li>
-              </ul>
+          <header class="major">
+            <h2>My Services</h2>
+            <p>
+              Professional web development and support solutions tailored to
+              your business needs
+            </p>
+          </header>
+
+          <div class="services-grid">
+            <!-- Live Chat Setup Service -->
+            <div class="service-card">
+              <div class="service-category">Customer Support</div>
+              <h3><span class="icon">💬</span> Tawk.to Live Chat Setup</h3>
               <p>
-                <strong>From $30</strong> –
-                <a href="https://www.upwork.com/freelancers/~014608bf423f3b6f63"
-                  >Hire me on Upwork</a
-                >
+                Transform your customer support with professional live chat
+                integration. Get instant communication with your website
+                visitors and boost conversion rates.
               </p>
-            </div>
-          </section>
 
-          <section class="center">
-            <div class="content">
-              <h3>📩 Ticketing System Setup</h3>
-              <ul class="features">
-                <li>Enable ticket system inside Tawk.to</li>
-                <li>Setup departments & email routing</li>
-                <li>Add ticket form to site</li>
+              <ul class="service-features">
+                <li>Complete widget installation & configuration</li>
+                <li>Custom branding, welcome & offline messages</li>
+                <li>Mobile app setup & chat hours configuration</li>
+                <li>Ticketing system integration</li>
+                <li>Knowledge base creation</li>
+                <li>Branded support page setup</li>
               </ul>
-              <p><strong>From $60</strong></p>
-            </div>
-          </section>
 
-          <section>
-            <div class="content">
-              <h3>📘 Knowledge Base Creation</h3>
-              <ul class="features">
-                <li>Structure help center content</li>
-                <li>Create branded help articles</li>
-                <li>Integrate with live chat</li>
-              </ul>
-              <p><strong>From $80</strong></p>
+              <div class="service-price">
+                <span class="price">From $30</span>
+                <a href="services/live-chat-setup.html" class="service-button"
+                  >Learn More</a
+                >
+              </div>
             </div>
-          </section>
 
-          <section>
-            <div class="content">
-              <h3>🌐 Tawk.to Brand Page Setup</h3>
-              <ul class="features">
-                <li>Create branded tawk.to/yourpage</li>
-                <li>Add logo, hours & support info</li>
-                <li>Polish for public or internal use</li>
+            <!-- Static Website Development -->
+            <div class="service-card">
+              <div class="service-category">Web Development</div>
+              <h3>
+                <span class="icon">🌐</span> Clean, Responsive Static Websites
+              </h3>
+              <p>
+                Get modern, fast-loading websites built with clean HTML & CSS.
+                Perfect for businesses, portfolios, and landing pages that need
+                professional online presence.
+              </p>
+
+              <ul class="service-features">
+                <li>Responsive design for all devices</li>
+                <li>Clean, semantic HTML & CSS code</li>
+                <li>Fast loading times & optimization</li>
+                <li>SEO-friendly structure</li>
+                <li>Cross-browser compatibility</li>
+                <li>Mobile-first approach</li>
               </ul>
-              <p><strong>From $40</strong></p>
+
+              <div class="service-price">
+                <span class="price">From $150</span>
+                <a
+                  href="services/static-website-development.html"
+                  class="service-button"
+                  >Learn More</a
+                >
+              </div>
             </div>
-          </section>
+
+            <!-- Google Lighthouse Audit -->
+            <div class="service-card">
+              <div class="service-category">Performance & SEO</div>
+              <h3>
+                <span class="icon">🚀</span> Google Lighthouse Performance Audit
+              </h3>
+              <p>
+                Comprehensive website analysis and optimization report. Get
+                detailed insights into your site's performance, accessibility,
+                SEO, and best practices with actionable recommendations.
+              </p>
+
+              <ul class="service-features">
+                <li>Complete performance analysis</li>
+                <li>Accessibility compliance review</li>
+                <li>SEO optimization recommendations</li>
+                <li>Best practices assessment</li>
+                <li>Detailed improvement roadmap</li>
+                <li>Before/after comparison reports</li>
+              </ul>
+
+              <div class="service-price">
+                <span class="price">From $75</span>
+                <a href="services/lighthouse-audit.html" class="service-button"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 3rem">
+            <p style="color: #b8b8b8; font-size: 1.1rem">
+              Need a custom solution? Let's discuss your project requirements.
+            </p>
+            <a
+              href="contact.html"
+              class="button primary"
+              style="margin-top: 1rem"
+              >Get a Custom Quote</a
+            >
+          </div>
         </div>
       </section>
 
       <!-- Footer -->
-      <footer id="footer">
-        <ul class="icons">
-          <li>
-            <a href="#" class="icon brands alt fa-linkedin-in"
-              ><span class="label">LinkedIn</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands alt fa-github"
-              ><span class="label">GitHub</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon solid alt fa-envelope"
-              ><span class="label">Email</span></a
-            >
-          </li>
-        </ul>
-        <ul class="copyright">
-          <li>&copy; James Dagless. All rights reserved.</li>
-        </ul>
+      <footer id="footer" class="modern">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Get In Touch</h3>
+              <p>
+                Ready to start your next project? I'd love to hear from you and
+                discuss how we can bring your ideas to life.
+              </p>
+            </section>
+            <section>
+              <h4>Follow Me</h4>
+              <ul class="plain">
+                <li>
+                  <a href="https://github.com/jamesdagless"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/jamesdagless"
+                    ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/jamesdagless"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h4>Contact Info</h4>
+              <ul class="alt">
+                <li>
+                  <h3>Email</h3>
+                  <a href="mailto:james@jamesdagless.co.uk"
+                    >james@jamesdagless.co.uk</a
+                  >
+                </li>
+                <li>
+                  <h3>Phone</h3>
+                  <p>Available upon request</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 James Dagless. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
 

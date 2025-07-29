@@ -10,27 +10,89 @@
     <style>
   .image.featured img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.3s ease;
   }
 
   section.box {
     height: 100%;
-    min-height: 540px; /* Adjust based on your tallest content */
+    min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: linear-gradient(145deg, #2a2d3a, #1e2028);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  section.box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  }
+
+  section.box:hover .image.featured img {
+    transform: scale(1.05);
   }
 
   section.box h3 {
-    margin-top: 1rem;
-    font-size: 1.2rem;
+    margin: 1.5rem 1.5rem 1rem 1.5rem;
+    font-size: 1.3rem;
+    color: #ffffff;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  section.box p {
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    color: #b8b8b8;
+    line-height: 1.6;
+    flex-grow: 1;
   }
 
   section.box .button {
-    margin-top: 1.5rem;
+    margin: 0 1.5rem 1.5rem 1.5rem;
     align-self: flex-start;
+    background: linear-gradient(45deg, #e44c65, #ff6b8a);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(228, 76, 101, 0.3);
+  }
+
+  section.box .button:hover {
+    background: linear-gradient(45deg, #d63651, #e44c65);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(228, 76, 101, 0.4);
+  }
+
+  /* Ensure proper grid layout */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+  }
+
+  .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 980px) {
+    .col-12-medium {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
   }
 
 /* Search Box */
@@ -92,11 +154,13 @@
         <h1 id="logo"><a href="index.html">James Dagless</a></h1>
         <nav id="nav">
           <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html" class="current">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="blog.html" class="button primary">Blog</a></li>
+            <li><a href="contact.html" class="button primary">Hire Me</a></li>
           </ul>
         </nav>
       </header>
@@ -209,8 +273,56 @@
 
 
 
-  <footer id="footer">
-    <p>&copy; James Dagless. All rights reserved.</p>
+  <footer id="footer" class="modern">
+    <div class="inner">
+      <div class="content">
+        <section>
+          <h3>Get In Touch</h3>
+          <p>
+            Ready to start your next project? I'd love to hear from you and
+            discuss how we can bring your ideas to life.
+          </p>
+        </section>
+        <section>
+          <h4>Follow Me</h4>
+          <ul class="plain">
+            <li>
+              <a href="https://github.com/jamesdagless"
+                ><i class="fab fa-github"></i> GitHub</a
+              >
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/jamesdagless"
+                ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+              >
+            </li>
+            <li>
+              <a href="https://twitter.com/jamesdagless"
+                ><i class="fab fa-twitter"></i> Twitter</a
+              >
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h4>Contact Info</h4>
+          <ul class="alt">
+            <li>
+              <h3>Email</h3>
+              <a href="mailto:james@jamesdagless.co.uk"
+                >james@jamesdagless.co.uk</a
+              >
+            </li>
+            <li>
+              <h3>Phone</h3>
+              <p>Available upon request</p>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2024 James Dagless. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
   </div>
 

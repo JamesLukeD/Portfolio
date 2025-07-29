@@ -2,75 +2,439 @@
 <html lang="en">
 <head>
   <title>Contact - James Dagless</title>
-  <meta name="description" content="Contact page created by James Dagles">
+  <meta name="description" content="Get in touch with James Dagless for web development and cybersecurity projects">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/main.css">
-</head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-something"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
+  
+  <style>
+    .contact-hero {
+      background: linear-gradient(135deg, #0f1117 0%, #1a1d26 50%, #2a2d3a 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="0.3" fill="%23e44c65" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+      pointer-events: none;
+    }
+
+    .contact-hero h1 {
+      font-size: 3rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-hero p {
+      font-size: 1.2rem;
+      color: #b8b8b8;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-form {
+      background: linear-gradient(145deg, #2a2d3a, #1e2028);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(45deg, #e44c65, #ff6b8a);
+    }
+
+    .contact-form h3 {
+      color: #ffffff;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-form .subtitle {
+      color: #b8b8b8;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      color: #e44c65;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      color: #ffffff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #e44c65;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 0 3px rgba(228, 76, 101, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, #e44c65, #ff6b8a);
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(228, 76, 101, 0.3);
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(45deg, #d63651, #e44c65);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(228, 76, 101, 0.4);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .info-card {
+      background: linear-gradient(145deg, #2a2d3a, #1e2028);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-card h4 {
+      color: #e44c65;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card .icon {
+      font-size: 1.5rem;
+      background: linear-gradient(45deg, #e44c65, #ff6b8a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .info-card p {
+      color: #b8b8b8;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .info-card a {
+      color: #e44c65;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .info-card a:hover {
+      color: #ff6b8a;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(45deg, #e44c65, #ff6b8a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(228, 76, 101, 0.3);
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 6px 20px rgba(228, 76, 101, 0.4);
+    }
+
+    .response-time {
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid #4CAF50;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .response-time .icon {
+      color: #4CAF50;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .response-time p {
+      color: #4CAF50;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1rem;
+      }
+
+      .contact-form {
+        padding: 2rem;
+      }
+
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+
+      .contact-hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 <body class="is-preload">
   <div id="page-wrapper">
+    <!-- Header -->
+    <header id="header">
+      <h1 id="logo"><a href="index.html">James Dagless</a></h1>
+      <nav id="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html" class="current">Contact</a></li>
+          <li><a href="contact.html" class="button primary">Hire Me</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">James Dagless</a></h1>
-					<nav id="nav">
-						<ul>
-							
-							<li><a href="services.html">Services</a></li> 
-							<li><a href="projects.html">Projects</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="contact.html" class="button primary">Hire Me</a></li>
-						</ul>
-					</nav>
-				</header>
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <h1>Let's Work Together</h1>
+      <p>Ready to bring your project to life? I'd love to hear about your ideas and discuss how we can create something amazing together.</p>
+    </section>
 
-    <!-- Main -->
-    <section class="wrapper style1 fade-up">
-      <div class="container">
-        <header class="major">
-          <h2>Contact</h2>
-          <p>Got a project idea, collaboration request, or just want to say hey? Reach out below.</p>
-        </header>
-
+    <!-- Contact Section -->
+    <section class="contact-container">
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h3><i class="fas fa-paper-plane"></i> Send Me a Message</h3>
+        <p class="subtitle">Fill out the form below and I'll get back to you within 24 hours.</p>
+        
         <form action="https://formspree.io/f/xwpbgarb" method="POST">
-          <div class="fields">
-            <div class="field half">
-              <label for="name">Name</label>
-              <input type="text" name="name" id="name" />
-            </div>
-            <div class="field half">
-              <label for="email">Your email: </label>
-              <input type="email" name="email" id="name"/>
-            </div>
-            <div class="field half">
-              <label for="message"> Your message:</label>
-              <textarea name="message" id="message" rows="5"></textarea>
-            </div>
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" name="name" id="name" required placeholder="Your full name" />
           </div>
-          <ul class="actions">
-            <li><input type="submit" value="Send Message" class="primary" /></li>
-          </ul>
+          
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" name="email" id="email" required placeholder="your.email@example.com" />
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Project Type</label>
+            <input type="text" name="subject" id="subject" placeholder="e.g., Website Development, Live Chat Setup" />
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Project Details *</label>
+            <textarea name="message" id="message" required placeholder="Tell me about your project, timeline, and any specific requirements..."></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-rocket"></i> Send Message
+          </button>
         </form>
 
-        <hr />
+        <div class="response-time">
+          <div class="icon">⚡</div>
+          <p>Quick Response - Usually within 24 hours</p>
+        </div>
+      </div>
 
-        <ul class="contact">
-          <li><strong>Email:</strong> jamesdaglessbsc@hotmail.com</li>
-          <li><strong>LinkedIn:</strong> <a href="www.linkedin.com/in/james-dagless-7a77161b7">www.linkedin.com/in/james-dagless-7a77161b7</a></li>
-          <!-- <li><strong>GitHub:</strong> <a href="#">github.com/yourprofile</a></li>
-        </ul> -->
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <div class="info-card">
+          <h4><i class="fas fa-envelope icon"></i> Email</h4>
+          <p>For project inquiries, collaborations, or general questions.</p>
+          <a href="mailto:jamesdaglessbsc@hotmail.com">jamesdaglessbsc@hotmail.com</a>
+        </div>
 
+        <div class="info-card">
+          <h4><i class="fas fa-briefcase icon"></i> Professional Network</h4>
+          <p>Connect with me on LinkedIn for professional updates and networking.</p>
+          <a href="https://www.linkedin.com/in/james-dagless-7a77161b7" target="_blank">LinkedIn Profile</a>
+        </div>
+
+        <div class="info-card">
+          <h4><i class="fas fa-code icon"></i> GitHub</h4>
+          <p>Check out my code repositories and open source contributions.</p>
+          <a href="#" target="_blank">GitHub Profile</a>
+          <p style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">Coming soon</p>
+        </div>
+
+        <div class="info-card">
+          <h4><i class="fas fa-comments icon"></i> Live Chat</h4>
+          <p>Need immediate assistance? Use the live chat widget on any page for instant support.</p>
+          <div class="social-links">
+            <a href="mailto:jamesdaglessbsc@hotmail.com" class="social-link" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/james-dagless-7a77161b7" class="social-link" title="LinkedIn" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h4><i class="fas fa-map-marker-alt icon"></i> Availability</h4>
+          <p><strong>Response Time:</strong> Within 24 hours<br>
+             <strong>Working Hours:</strong> Mon-Fri, 9 AM - 6 PM GMT<br>
+             <strong>Time Zone:</strong> United Kingdom</p>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer id="footer">
-      <ul class="copyright">
-        <li>&copy; James Dagless. All rights reserved.</li>
-        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-      </ul>
+    <footer id="footer" class="modern">
+      <div class="inner">
+        <div class="content">
+          <section>
+            <h3>Get In Touch</h3>
+            <p>
+              Ready to start your next project? I'd love to hear from you and
+              discuss how we can bring your ideas to life.
+            </p>
+          </section>
+          <section>
+            <h4>Follow Me</h4>
+            <ul class="plain">
+              <li>
+                <a href="https://github.com/jamesdagless"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/jamesdagless"
+                  ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                >
+              </li>
+              <li>
+                <a href="https://twitter.com/jamesdagless"
+                  ><i class="fab fa-twitter"></i> Twitter</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h4>Contact Info</h4>
+            <ul class="alt">
+              <li>
+                <h3>Email</h3>
+                <a href="mailto:james@jamesdagless.co.uk"
+                  >james@jamesdagless.co.uk</a
+                >
+              </li>
+              <li>
+                <h3>Phone</h3>
+                <p>Available upon request</p>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2024 James Dagless. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
   </div>

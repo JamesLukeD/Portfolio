@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Google Lighthouse Performance Audit | James Dagless</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Comprehensive Google Lighthouse performance, SEO, and accessibility audit services"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-something"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <noscript
+      ><link rel="stylesheet" href="../assets/css/noscript.css"
+    /></noscript>
+
+    <style>
+      .service-detail {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-hero {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .service-hero h1 {
+        font-size: 2.5rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+      }
+
+      .service-hero .price-highlight {
+        font-size: 1.5rem;
+        color: #e44c65;
+        font-weight: 600;
+        margin: 1rem 0;
+      }
+
+      .lighthouse-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .metric-card {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .metric-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--metric-color);
+      }
+
+      .metric-card.performance {
+        --metric-color: #4caf50;
+      }
+      .metric-card.accessibility {
+        --metric-color: #ff9800;
+      }
+      .metric-card.seo {
+        --metric-color: #2196f3;
+      }
+      .metric-card.best-practices {
+        --metric-color: #9c27b0;
+      }
+
+      .metric-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--metric-color);
+      }
+
+      .metric-card h3 {
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+      }
+
+      .metric-card p {
+        color: #b8b8b8;
+        font-size: 0.9rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .feature-card {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .feature-card h3 {
+        color: #e44c65;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .feature-card p {
+        color: #b8b8b8;
+        line-height: 1.6;
+      }
+
+      .process-section {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        border-radius: 15px;
+        padding: 3rem 2rem;
+        margin: 3rem 0;
+      }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .process-step {
+        text-align: center;
+        position: relative;
+      }
+
+      .step-number {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0 auto 1rem;
+      }
+
+      .pricing-section {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        border-radius: 15px;
+        padding: 3rem 2rem;
+        margin: 3rem 0;
+        text-align: center;
+      }
+
+      .pricing-tiers {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .pricing-tier {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      .tier-popular {
+        border: 2px solid #e44c65;
+      }
+
+      .tier-popular::before {
+        content: "Most Popular";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 0.3rem 1rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .tier-price {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #e44c65;
+        margin-bottom: 1rem;
+      }
+
+      .tier-features {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .tier-features li {
+        color: #ccc;
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .tier-features li::before {
+        content: "✓";
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      .cta-section {
+        text-align: center;
+        margin: 4rem 0;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.3);
+        display: inline-block;
+        margin: 0 1rem;
+      }
+
+      .cta-button:hover {
+        background: linear-gradient(45deg, #d63651, #e44c65);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(228, 76, 101, 0.4);
+      }
+
+      .cta-button.secondary {
+        background: transparent;
+        border: 2px solid #e44c65;
+        color: #e44c65;
+      }
+
+      .cta-button.secondary:hover {
+        background: #e44c65;
+        color: white;
+      }
+
+      .sample-report {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .report-preview {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .score-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .score-good {
+        background: conic-gradient(#4caf50 0deg 324deg, #e0e0e0 324deg 360deg);
+        color: #4caf50;
+      }
+      .score-ok {
+        background: conic-gradient(#ff9800 0deg 288deg, #e0e0e0 288deg 360deg);
+        color: #ff9800;
+      }
+      .score-poor {
+        background: conic-gradient(#f44336 0deg 180deg, #e0e0e0 180deg 360deg);
+        color: #f44336;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo"><a href="../index.html">James Dagless</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../services.html" class="current">Services</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li>
+              <a href="../contact.html" class="button primary">Hire Me</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Service Detail -->
+      <section class="service-detail">
+        <div class="service-hero">
+          <h1>🚀 Google Lighthouse Performance Audit</h1>
+          <p
+            style="
+              font-size: 1.2rem;
+              color: #b8b8b8;
+              max-width: 600px;
+              margin: 0 auto;
+            "
+          >
+            Get comprehensive website analysis and optimization recommendations.
+            Improve your site's performance, accessibility, SEO, and user
+            experience with data-driven insights.
+          </p>
+          <div class="price-highlight">Starting from $75</div>
+        </div>
+
+        <div class="lighthouse-metrics">
+          <div class="metric-card performance">
+            <div class="metric-icon">⚡</div>
+            <h3>Performance</h3>
+            <p>
+              Page load speed, Core Web Vitals, and optimization opportunities
+            </p>
+          </div>
+
+          <div class="metric-card accessibility">
+            <div class="metric-icon">♿</div>
+            <h3>Accessibility</h3>
+            <p>
+              WCAG compliance, screen reader compatibility, and inclusive design
+            </p>
+          </div>
+
+          <div class="metric-card seo">
+            <div class="metric-icon">🔍</div>
+            <h3>SEO</h3>
+            <p>Search engine optimization, meta tags, and content structure</p>
+          </div>
+
+          <div class="metric-card best-practices">
+            <div class="metric-icon">🛡️</div>
+            <h3>Best Practices</h3>
+            <p>Security, HTTPS, modern web standards, and code quality</p>
+          </div>
+        </div>
+
+        <div class="sample-report">
+          <h3 style="text-align: center; color: #ffffff; margin-bottom: 2rem">
+            Sample Report Scores
+          </h3>
+          <div class="report-preview">
+            <div style="text-align: center">
+              <div class="score-circle score-good">90</div>
+              <p style="color: #4caf50; margin-top: 0.5rem; font-weight: 500">
+                Performance
+              </p>
+            </div>
+            <div style="text-align: center">
+              <div class="score-circle score-ok">80</div>
+              <p style="color: #ff9800; margin-top: 0.5rem; font-weight: 500">
+                Accessibility
+              </p>
+            </div>
+            <div style="text-align: center">
+              <div class="score-circle score-good">95</div>
+              <p style="color: #4caf50; margin-top: 0.5rem; font-weight: 500">
+                SEO
+              </p>
+            </div>
+            <div style="text-align: center">
+              <div class="score-circle score-poor">50</div>
+              <p style="color: #f44336; margin-top: 0.5rem; font-weight: 500">
+                Best Practices
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>
+              <i class="fas fa-chart-line"></i> Detailed Performance Analysis
+            </h3>
+            <p>
+              Complete breakdown of loading times, Core Web Vitals (LCP, FID,
+              CLS), and specific recommendations to improve page speed and user
+              experience.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>
+              <i class="fas fa-universal-access"></i> Accessibility Review
+            </h3>
+            <p>
+              Comprehensive accessibility audit covering WCAG guidelines, screen
+              reader compatibility, keyboard navigation, and inclusive design
+              principles.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-search-plus"></i> SEO Optimization</h3>
+            <p>
+              In-depth SEO analysis including meta tags, heading structure,
+              content optimization, and technical SEO factors affecting search
+              rankings.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-shield-alt"></i> Security & Best Practices</h3>
+            <p>
+              Security assessment, HTTPS implementation review, modern web
+              standards compliance, and code quality evaluation.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-mobile-alt"></i> Mobile Optimization</h3>
+            <p>
+              Mobile-specific performance analysis, responsive design review,
+              and mobile usability recommendations for better mobile experience.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-file-alt"></i> Actionable Report</h3>
+            <p>
+              Detailed PDF report with prioritized recommendations,
+              implementation guides, and before/after comparisons to track
+              improvements.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-section">
+          <h2 style="text-align: center; margin-bottom: 2rem">Audit Process</h2>
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h4 style="color: #ffffff">Initial Analysis</h4>
+              <p style="color: #b8b8b8">
+                Run comprehensive Lighthouse audit on your website across
+                multiple pages and devices
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h4 style="color: #ffffff">Deep Dive Review</h4>
+              <p style="color: #b8b8b8">
+                Analyze results, identify critical issues, and prioritize
+                improvements by impact
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h4 style="color: #ffffff">Detailed Report</h4>
+              <p style="color: #b8b8b8">
+                Create comprehensive report with specific recommendations and
+                implementation guides
+              </p>
+            </div>
+
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h4 style="color: #ffffff">Follow-up Support</h4>
+              <p style="color: #b8b8b8">
+                Provide email support and verification testing after
+                improvements are implemented
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-section">
+          <h2>Audit Packages</h2>
+          <p style="color: #b8b8b8">
+            Choose the level of analysis that fits your needs
+          </p>
+
+          <div class="pricing-tiers">
+            <div class="pricing-tier">
+              <h3>Basic Audit</h3>
+              <div class="tier-price">$75</div>
+              <ul class="tier-features">
+                <li>Single page Lighthouse audit</li>
+                <li>Performance & SEO analysis</li>
+                <li>Basic recommendations report</li>
+                <li>Email support for questions</li>
+                <li>2-day delivery</li>
+              </ul>
+            </div>
+
+            <div class="pricing-tier tier-popular">
+              <h3>Complete Website Audit</h3>
+              <div class="tier-price">$150</div>
+              <ul class="tier-features">
+                <li>Up to 5 pages analysis</li>
+                <li>Full 4-metric audit</li>
+                <li>Detailed PDF report</li>
+                <li>Priority action plan</li>
+                <li>Email support included</li>
+                <li>1-week delivery</li>
+              </ul>
+            </div>
+
+            <div class="pricing-tier">
+              <h3>Enterprise Audit</h3>
+              <div class="tier-price">$300</div>
+              <ul class="tier-features">
+                <li>Unlimited pages analysis</li>
+                <li>Comprehensive audit report</li>
+                <li>Implementation roadmap</li>
+                <li>Detailed documentation</li>
+                <li>Post-fix verification</li>
+                <li>2-week delivery</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <h2>Ready to Optimize Your Website?</h2>
+          <p style="color: #b8b8b8; margin-bottom: 2rem">
+            Get actionable insights to improve your website's performance and
+            user experience!
+          </p>
+
+          <a href="../contact.html" class="cta-button">Start Your Audit</a>
+          <a href="../blog.html" class="cta-button secondary">Read Our Blog</a>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer id="footer" class="modern">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Get In Touch</h3>
+              <p>
+                Ready to start your next project? I'd love to hear from you and
+                discuss how we can bring your ideas to life.
+              </p>
+            </section>
+            <section>
+              <h4>Follow Me</h4>
+              <ul class="plain">
+                <li>
+                  <a href="https://github.com/jamesdagless"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/jamesdagless"
+                    ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/jamesdagless"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h4>Contact Info</h4>
+              <ul class="alt">
+                <li>
+                  <h3>Email</h3>
+                  <a href="mailto:james@jamesdagless.co.uk"
+                    >james@jamesdagless.co.uk</a
+                  >
+                </li>
+                <li>
+                  <h3>Phone</h3>
+                  <p>Available upon request</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 James Dagless. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/687051dbbaa3a2190a75cc65/1ivrbvgn9";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>

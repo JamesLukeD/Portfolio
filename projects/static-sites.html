@@ -2,70 +2,283 @@
 <html lang="en">
   <head>
     <title>Static Sites - James Dagless</title>
-    <meta name="description" content="Static sites producted by James Dagless">
+    <meta
+      name="description"
+      content="Static sites producted by James Dagless"
+    />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    <noscript
+      ><link rel="stylesheet" href="../assets/css/noscript.css"
+    /></noscript>
+    <style>
+      .image.featured img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+        transition: transform 0.3s ease;
+      }
+
+      section.box {
+        height: 100%;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      section.box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+      }
+
+      section.box:hover .image.featured img {
+        transform: scale(1.05);
+      }
+
+      section.box h3 {
+        margin: 1.5rem 1.5rem 1rem 1.5rem;
+        font-size: 1.3rem;
+        color: #ffffff;
+        line-height: 1.3;
+        font-weight: 600;
+      }
+
+      section.box p {
+        margin: 0 1.5rem 1.5rem 1.5rem;
+        color: #b8b8b8;
+        line-height: 1.6;
+        flex-grow: 1;
+      }
+
+      .button-container {
+        margin: 0 1.5rem 1.5rem 1.5rem;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      section.box .button {
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 25px;
+        color: white;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(228, 76, 101, 0.3);
+        font-size: 0.85rem;
+      }
+
+      section.box .button:hover {
+        background: linear-gradient(45deg, #d63651, #e44c65);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.4);
+      }
+
+      section.box .button.alt {
+        background: linear-gradient(45deg, #444857, #5a5f73);
+        box-shadow: 0 4px 15px rgba(68, 72, 87, 0.3);
+      }
+
+      section.box .button.alt:hover {
+        background: linear-gradient(45deg, #525766, #646a80);
+        box-shadow: 0 6px 20px rgba(68, 72, 87, 0.4);
+      }
+
+      /* Ensure proper grid layout */
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -1rem;
+      }
+
+      .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+      }
+
+      @media screen and (max-width: 980px) {
+        .col-12-medium {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+
+      .back-button {
+        margin: 2rem 0;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body class="is-preload">
     <div id="page-wrapper">
       <!-- Header -->
       <header id="header">
-        <h1 id="logo"><a href="index.html">James Dagless</a></h1>
+        <h1 id="logo"><a href="../index.html">James Dagless</a></h1>
         <nav id="nav">
           <ul>
-            <li><a href="../services.html">Services</a></li>
-            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a href="../about.html">About</a></li>
-            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../projects.html" class="current">Projects</a></li>
             <li><a href="../blog.html">Blog</a></li>
-            <li><a href="../contact.html" class="button primary">Hire Me</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li>
+              <a href="../contact.html" class="button primary">Hire Me</a>
+            </li>
           </ul>
         </nav>
       </header>
 
-    <a href="../projects.html" class="button">← Back to Projects</a>
-
+      <div class="container back-button">
+        <a href="../projects.html" class="button">← Back to Projects</a>
+      </div>
 
       <!-- Main -->
-      <section class="wrapper style1 special">
+      <section class="wrapper style1">
         <div class="container">
           <header class="major">
             <h2>Static Website Projects</h2>
             <p>A collection of fully hand-coded HTML/CSS sites</p>
           </header>
 
-          <div class="row gtr-150">
+          <div class="row">
+            <!-- Site One -->
             <div class="col-6 col-12-medium">
-              <h3>ZenFluence Wellness Site</h3>
-              <p>A calming yoga/wellness site with soft branding, responsive layout, and clear calls to action.</p>
-              <ul class="actions">
-                <li><a href="https://zenfluence.netlify.app" class="button small" target="_blank">View Live</a></li>
-                <li><a href="https://github.com/jamesdagless/zenfluence" class="button alt small" target="_blank">View Code</a></li>
-              </ul>
+              <section class="box">
+                <a
+                  href="https://yoga-static.netlify.app/"
+                  class="image featured"
+                  target="_blank"
+                >
+                  <img
+                    src="images/static-pages/wellness.png"
+                    alt="Wellness page"
+                  />
+                </a>
+                <h3>ZenFluence Wellness Site</h3>
+                <p>
+                  A calming yoga/wellness site with soft branding, responsive
+                  layout, and clear calls to action.
+                </p>
+                <div class="button-container">
+                  <a
+                    href="https://yoga-static.netlify.app/"
+                    class="button"
+                    target="_blank"
+                    >View Live</a
+                  >
+                  <a
+                    href="https://github.com/JamesLukeD/web-design-gallery/blob/main/Yoga/index.html"
+                    class="button alt"
+                    target="_blank"
+                    >View Code</a
+                  >
+                </div>
+              </section>
             </div>
 
+            <!-- Site Two -->
             <div class="col-6 col-12-medium">
-              <h3>Clean Portfolio Template</h3>
-              <p>A minimal, SEO-friendly portfolio template with smooth scrolling and responsive design elements.</p>
-              <ul class="actions">
-                <li><a href="https://jamesdagless-portfolio.netlify.app" class="button small" target="_blank">View Live</a></li>
-                <li><a href="https://github.com/jamesdagless/portfolio" class="button alt small" target="_blank">View Code</a></li>
-              </ul>
+              <section class="box">
+                <a
+                  href="https://jamesluked.github.io/web-design-gallery/SkateShop/skate.html"
+                  class="image featured"
+                  target="_blank"
+                >
+                  <img
+                    src="images/static-pages/skateshop.png"
+                    alt="Skateshop static page"
+                  />
+                </a>
+                <h3>A Modern Indie Skateboard Shop</h3>
+                <p>
+                  A minimalist skateboard shop designed as an indie with good
+                  looking greens.
+                </p>
+                <div class="button-container">
+                  <a
+                    href="https://jamesluked.github.io/web-design-gallery/SkateShop/skate.html"
+                    class="button"
+                    target="_blank"
+                    >View Live</a
+                  >
+                  <a
+                    href="https://github.com/JamesLukeD/web-design-gallery/blob/main/SkateShop/skate.html"
+                    class="button alt"
+                    target="_blank"
+                    >View Code</a
+                  >
+                </div>
+              </section>
             </div>
-
-            <!-- Add more sites here if needed -->
           </div>
         </div>
       </section>
 
       <!-- Footer -->
-      <footer id="footer">
-        <ul class="copyright">
-          <li>&copy; James Dagless. All rights reserved.</li>
-          <li>Design: HTML5 UP</li>
-        </ul>
+      <footer id="footer" class="modern">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Get In Touch</h3>
+              <p>
+                Ready to start your next project? I'd love to hear from you and
+                discuss how we can bring your ideas to life.
+              </p>
+            </section>
+            <section>
+              <h4>Follow Me</h4>
+              <ul class="plain">
+                <li>
+                  <a href="https://github.com/jamesdagless"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/jamesdagless"
+                    ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/jamesdagless"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h4>Contact Info</h4>
+              <ul class="alt">
+                <li>
+                  <h3>Email</h3>
+                  <a href="mailto:james@jamesdagless.co.uk"
+                    >james@jamesdagless.co.uk</a
+                  >
+                </li>
+                <li>
+                  <h3>Phone</h3>
+                  <p>Available upon request</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 James Dagless. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
 
@@ -81,7 +294,8 @@
 
     <!-- Tawk.to Script -->
     <script type="text/javascript">
-      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
       (function () {
         var s1 = document.createElement("script"),
           s0 = document.getElementsByTagName("script")[0];
@@ -94,7 +308,10 @@
     </script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGSCEDLDEY"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YGSCEDLDEY"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {

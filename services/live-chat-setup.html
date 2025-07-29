@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tawk.to Live Chat Setup | James Dagless</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Professional Tawk.to live chat setup and integration services"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-something"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <noscript
+      ><link rel="stylesheet" href="../assets/css/noscript.css"
+    /></noscript>
+
+    <style>
+      .service-detail {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-hero {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .service-hero h1 {
+        font-size: 2.5rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+      }
+
+      .service-hero .price-highlight {
+        font-size: 1.5rem;
+        color: #e44c65;
+        font-weight: 600;
+        margin: 1rem 0;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .feature-card {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .feature-card h3 {
+        color: #e44c65;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .feature-card p {
+        color: #b8b8b8;
+        line-height: 1.6;
+      }
+
+      .pricing-section {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        border-radius: 15px;
+        padding: 3rem 2rem;
+        margin: 3rem 0;
+        text-align: center;
+      }
+
+      .pricing-tiers {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .pricing-tier {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      .tier-popular {
+        border: 2px solid #e44c65;
+      }
+
+      .tier-popular::before {
+        content: "Most Popular";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 0.3rem 1rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .tier-price {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #e44c65;
+        margin-bottom: 1rem;
+      }
+
+      .tier-features {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .tier-features li {
+        color: #ccc;
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .tier-features li::before {
+        content: "✓";
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      .cta-section {
+        text-align: center;
+        margin: 4rem 0;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.3);
+        display: inline-block;
+        margin: 0 1rem;
+      }
+
+      .cta-button:hover {
+        background: linear-gradient(45deg, #d63651, #e44c65);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(228, 76, 101, 0.4);
+      }
+
+      .cta-button.secondary {
+        background: transparent;
+        border: 2px solid #e44c65;
+        color: #e44c65;
+      }
+
+      .cta-button.secondary:hover {
+        background: #e44c65;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo"><a href="../index.html">James Dagless</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../services.html" class="current">Services</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li>
+              <a href="../contact.html" class="button primary">Hire Me</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Service Detail -->
+      <section class="service-detail">
+        <div class="service-hero">
+          <h1>💬 Tawk.to Live Chat Setup</h1>
+          <p
+            style="
+              font-size: 1.2rem;
+              color: #b8b8b8;
+              max-width: 600px;
+              margin: 0 auto;
+            "
+          >
+            Transform your customer support with professional live chat
+            integration. Boost engagement, capture leads, and provide instant
+            support to your website visitors.
+          </p>
+          <div class="price-highlight">Starting from $30</div>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3><i class="fas fa-cog"></i> Complete Setup & Configuration</h3>
+            <p>
+              Full installation and customization of the Tawk.to widget on your
+              website. I'll handle all technical aspects including widget
+              placement, appearance settings, and initial configuration.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-palette"></i> Custom Branding</h3>
+            <p>
+              Match your brand identity with custom colors, logos, and
+              messaging. Create welcome messages, offline forms, and automated
+              responses that reflect your business personality.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-mobile-alt"></i> Mobile App Integration</h3>
+            <p>
+              Set up the Tawk.to mobile app so you can respond to customers
+              on-the-go. Configure push notifications and chat hours to manage
+              availability effectively.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-ticket-alt"></i> Ticketing System</h3>
+            <p>
+              Enable advanced ticketing functionality for complex support
+              requests. Set up departments, email routing, and ticket forms for
+              comprehensive customer support.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-book"></i> Knowledge Base Creation</h3>
+            <p>
+              Build a comprehensive help center with structured articles and
+              FAQs. Integrate with live chat to provide instant answers and
+              reduce support workload.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-globe"></i> Branded Support Page</h3>
+            <p>
+              Create a professional public-facing support page
+              (tawk.to/yourpage) with your branding, business hours, and contact
+              information for enhanced credibility.
+            </p>
+          </div>
+        </div>
+
+        <div class="pricing-section">
+          <h2>Choose Your Package</h2>
+          <p style="color: #b8b8b8">
+            Select the level of service that best fits your needs
+          </p>
+
+          <div class="pricing-tiers">
+            <div class="pricing-tier">
+              <h3>Basic Setup</h3>
+              <div class="tier-price">$30</div>
+              <ul class="tier-features">
+                <li>Widget installation & configuration</li>
+                <li>Basic branding (colors, welcome message)</li>
+                <li>Mobile app setup guide</li>
+                <li>1 week support</li>
+              </ul>
+            </div>
+
+            <div class="pricing-tier tier-popular">
+              <h3>Complete Package</h3>
+              <div class="tier-price">$80</div>
+              <ul class="tier-features">
+                <li>Everything in Basic</li>
+                <li>Ticketing system setup</li>
+                <li>Knowledge base creation (up to 10 articles)</li>
+                <li>Branded support page</li>
+                <li>Advanced automation setup</li>
+                <li>2 weeks support & training</li>
+              </ul>
+            </div>
+
+            <div class="pricing-tier">
+              <h3>Enterprise</h3>
+              <div class="tier-price">$150</div>
+              <ul class="tier-features">
+                <li>Everything in Complete</li>
+                <li>Multiple department setup</li>
+                <li>Extensive knowledge base (unlimited articles)</li>
+                <li>Advanced integrations</li>
+                <li>Staff training session</li>
+                <li>1 month ongoing support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <h2>Ready to Improve Your Customer Support?</h2>
+          <p style="color: #b8b8b8; margin-bottom: 2rem">
+            Let's get your live chat system up and running today!
+          </p>
+
+          <a href="../contact.html" class="cta-button">Get Started Now</a>
+          <a
+            href="https://www.upwork.com/freelancers/~014608bf423f3b6f63"
+            class="cta-button secondary"
+            >Hire on Upwork</a
+          >
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer id="footer" class="modern">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Get In Touch</h3>
+              <p>
+                Ready to start your next project? I'd love to hear from you and
+                discuss how we can bring your ideas to life.
+              </p>
+            </section>
+            <section>
+              <h4>Follow Me</h4>
+              <ul class="plain">
+                <li>
+                  <a href="https://github.com/jamesdagless"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/jamesdagless"
+                    ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/jamesdagless"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h4>Contact Info</h4>
+              <ul class="alt">
+                <li>
+                  <h3>Email</h3>
+                  <a href="mailto:james@jamesdagless.co.uk"
+                    >james@jamesdagless.co.uk</a
+                  >
+                </li>
+                <li>
+                  <h3>Phone</h3>
+                  <p>Available upon request</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 James Dagless. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/687051dbbaa3a2190a75cc65/1ivrbvgn9";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>

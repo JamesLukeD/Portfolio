@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Static Website Development | James Dagless</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Professional responsive static website development with HTML & CSS"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-something"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <noscript
+      ><link rel="stylesheet" href="../assets/css/noscript.css"
+    /></noscript>
+
+    <style>
+      .service-detail {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-hero {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .service-hero h1 {
+        font-size: 2.5rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+      }
+
+      .service-hero .price-highlight {
+        font-size: 1.5rem;
+        color: #e44c65;
+        font-weight: 600;
+        margin: 1rem 0;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .feature-card {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .feature-card h3 {
+        color: #e44c65;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .feature-card p {
+        color: #b8b8b8;
+        line-height: 1.6;
+      }
+
+      .tech-stack {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        border-radius: 15px;
+        padding: 3rem 2rem;
+        margin: 3rem 0;
+        text-align: center;
+      }
+
+      .tech-icons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .tech-item {
+        text-align: center;
+      }
+
+      .tech-item i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .pricing-section {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        border-radius: 15px;
+        padding: 3rem 2rem;
+        margin: 3rem 0;
+        text-align: center;
+      }
+
+      .pricing-tiers {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .pricing-tier {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      .tier-popular {
+        border: 2px solid #e44c65;
+      }
+
+      .tier-popular::before {
+        content: "Most Popular";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 0.3rem 1rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .tier-price {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #e44c65;
+        margin-bottom: 1rem;
+      }
+
+      .tier-features {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .tier-features li {
+        color: #ccc;
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .tier-features li::before {
+        content: "✓";
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      .cta-section {
+        text-align: center;
+        margin: 4rem 0;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.3);
+        display: inline-block;
+        margin: 0 1rem;
+      }
+
+      .cta-button:hover {
+        background: linear-gradient(45deg, #d63651, #e44c65);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(228, 76, 101, 0.4);
+      }
+
+      .cta-button.secondary {
+        background: transparent;
+        border: 2px solid #e44c65;
+        color: #e44c65;
+      }
+
+      .cta-button.secondary:hover {
+        background: #e44c65;
+        color: white;
+      }
+
+      .portfolio-preview {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .portfolio-item {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .portfolio-item-content {
+        padding: 1.5rem;
+      }
+
+      .portfolio-item h4 {
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+      }
+
+      .portfolio-item p {
+        color: #b8b8b8;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo"><a href="../index.html">James Dagless</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../services.html" class="current">Services</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li>
+              <a href="../contact.html" class="button primary">Hire Me</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Service Detail -->
+      <section class="service-detail">
+        <div class="service-hero">
+          <h1>🌐 Clean, Responsive Static Websites</h1>
+          <p
+            style="
+              font-size: 1.2rem;
+              color: #b8b8b8;
+              max-width: 600px;
+              margin: 0 auto;
+            "
+          >
+            Get modern, fast-loading websites built with clean HTML & CSS.
+            Perfect for businesses, portfolios, and landing pages that need
+            professional online presence.
+          </p>
+          <div class="price-highlight">Starting from $150</div>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3><i class="fas fa-mobile-alt"></i> Fully Responsive Design</h3>
+            <p>
+              Your website will look perfect on all devices - desktop, tablet,
+              and mobile. Mobile-first approach ensures optimal user experience
+              across all screen sizes.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-code"></i> Clean, Semantic Code</h3>
+            <p>
+              Well-structured HTML5 and modern CSS3 code that's easy to
+              maintain, SEO-friendly, and follows web standards and best
+              practices.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-rocket"></i> Lightning Fast Performance</h3>
+            <p>
+              Optimized images, minified code, and efficient structure ensure
+              your website loads quickly, improving user experience and search
+              rankings.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-search"></i> SEO-Ready Structure</h3>
+            <p>
+              Built with search engine optimization in mind - proper heading
+              structure, meta tags, semantic markup, and optimized content
+              hierarchy.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-globe"></i> Cross-Browser Compatible</h3>
+            <p>
+              Tested and optimized to work perfectly across all modern browsers
+              including Chrome, Firefox, Safari, and Edge.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3><i class="fas fa-palette"></i> Custom Design Implementation</h3>
+            <p>
+              Transform your design mockups into pixel-perfect websites, or work
+              together to create a unique design that represents your brand.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-stack">
+          <h2>Technologies & Tools</h2>
+          <p style="color: #b8b8b8">
+            Built with modern web technologies for maximum compatibility and
+            performance
+          </p>
+
+          <div class="tech-icons">
+            <div class="tech-item">
+              <i class="fab fa-html5"></i>
+              <h4 style="color: #ffffff">HTML5</h4>
+              <p style="color: #b8b8b8">Semantic markup</p>
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-css3-alt"></i>
+              <h4 style="color: #ffffff">CSS3</h4>
+              <p style="color: #b8b8b8">Modern styling</p>
+            </div>
+            <div class="tech-item">
+              <i class="fab fa-sass"></i>
+              <h4 style="color: #ffffff">Sass/SCSS</h4>
+              <p style="color: #b8b8b8">Advanced preprocessing</p>
+            </div>
+            <div class="tech-item">
+              <i class="fas fa-mobile-alt"></i>
+              <h4 style="color: #ffffff">Responsive</h4>
+              <p style="color: #b8b8b8">Mobile-first design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-section">
+          <h2>Website Packages</h2>
+          <p style="color: #b8b8b8">
+            Choose the package that best fits your project needs
+          </p>
+
+          <div class="pricing-tiers">
+            <div class="pricing-tier">
+              <h3>Landing Page</h3>
+              <div class="tier-price">$150</div>
+              <ul class="tier-features">
+                <li>Single page design</li>
+                <li>Responsive layout</li>
+                <li>Contact form integration</li>
+                <li>Basic SEO optimization</li>
+                <li>2 rounds of revisions</li>
+                <li>1 week delivery</li>
+              </ul>
+            </div>
+
+            <div class="pricing-tier tier-popular">
+              <h3>Business Website</h3>
+              <div class="tier-price">$350</div>
+              <ul class="tier-features">
+                <li>Up to 5 pages</li>
+                <li>Custom responsive design</li>
+                <li>Contact forms & maps</li>
+                <li>Advanced SEO setup</li>
+                <li>Image optimization</li>
+                <li>3 rounds of revisions</li>
+                <li>2 week delivery</li>
+              </ul>
+            </div>
+
+            <div class="pricing-tier">
+              <h3>Portfolio/E-commerce</h3>
+              <div class="tier-price">$550</div>
+              <ul class="tier-features">
+                <li>Up to 10 pages</li>
+                <li>Custom design & branding</li>
+                <li>Gallery/product showcases</li>
+                <li>Advanced animations</li>
+                <li>Complete SEO package</li>
+                <li>Unlimited revisions</li>
+                <li>3 week delivery</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin: 4rem 0">
+          <h2 style="text-align: center; margin-bottom: 2rem">Recent Work</h2>
+          <div class="portfolio-preview">
+            <div class="portfolio-item">
+              <img
+                src="../projects/images/static-pages/staticPages1.png"
+                alt="Business Website"
+              />
+              <div class="portfolio-item-content">
+                <h4>Business Portfolio</h4>
+                <p>
+                  Clean, professional design with optimized performance and
+                  mobile responsiveness.
+                </p>
+              </div>
+            </div>
+            <div class="portfolio-item">
+              <img
+                src="../projects/images/static-pages/wellness.png"
+                alt="Wellness Website"
+              />
+              <div class="portfolio-item-content">
+                <h4>Wellness Landing Page</h4>
+                <p>
+                  Modern design focused on user experience and conversion
+                  optimization.
+                </p>
+              </div>
+            </div>
+            <div class="portfolio-item">
+              <img
+                src="../projects/images/static-pages/skateshop.png"
+                alt="E-commerce Site"
+              />
+              <div class="portfolio-item-content">
+                <h4>E-commerce Storefront</h4>
+                <p>
+                  Product showcase with responsive layout and optimized user
+                  journey.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <h2>Ready to Build Your Website?</h2>
+          <p style="color: #b8b8b8; margin-bottom: 2rem">
+            Let's create a professional online presence for your business!
+          </p>
+
+          <a href="../contact.html" class="cta-button">Start Your Project</a>
+          <a href="../projects.html" class="cta-button secondary"
+            >View Portfolio</a
+          >
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer id="footer" class="modern">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Get In Touch</h3>
+              <p>
+                Ready to start your next project? I'd love to hear from you and
+                discuss how we can bring your ideas to life.
+              </p>
+            </section>
+            <section>
+              <h4>Follow Me</h4>
+              <ul class="plain">
+                <li>
+                  <a href="https://github.com/jamesdagless"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/jamesdagless"
+                    ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/jamesdagless"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h4>Contact Info</h4>
+              <ul class="alt">
+                <li>
+                  <h3>Email</h3>
+                  <a href="mailto:james@jamesdagless.co.uk"
+                    >james@jamesdagless.co.uk</a
+                  >
+                </li>
+                <li>
+                  <h3>Phone</h3>
+                  <p>Available upon request</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 James Dagless. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/687051dbbaa3a2190a75cc65/1ivrbvgn9";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
+  </body>
+</html>

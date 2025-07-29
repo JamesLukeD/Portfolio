@@ -2,102 +2,673 @@
 <html lang="en">
   <head>
     <title>About - James Dagless</title>
-    <meta name="description" content="About me page created by James Dagles">
+    <meta name="description" content="Learn about James Dagless - Web Developer and Cybersecurity Graduate with expertise in modern web technologies" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
-    /></noscript>
-  </head>
-  <body class="is-preload">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-something"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    
+    <style>
+      .about-hero {
+        background: linear-gradient(135deg, #0f1117 0%, #1a1d26 50%, #2a2d3a 100%);
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="0.3" fill="%23e44c65" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+        pointer-events: none;
+      }
+
+      .about-hero h1 {
+        font-size: 3rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .about-hero .subtitle {
+        font-size: 1.3rem;
+        color: #e44c65;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .about-hero p {
+        font-size: 1.1rem;
+        color: #b8b8b8;
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 4rem;
+        margin-bottom: 4rem;
+        align-items: start;
+      }
+
+      .profile-card {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        position: sticky;
+        top: 2rem;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        border: 4px solid #e44c65;
+        box-shadow: 0 10px 30px rgba(228, 76, 101, 0.3);
+        overflow: hidden;
+      }
+
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .profile-card h3 {
+        color: #ffffff;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .profile-card .role {
+        color: #e44c65;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .profile-card .location {
+        color: #b8b8b8;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .quick-facts {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+      }
+
+      .quick-facts li {
+        background: rgba(228, 76, 101, 0.1);
+        border-radius: 8px;
+        padding: 0.8rem;
+        margin-bottom: 0.5rem;
+        color: #ccc;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .quick-facts li i {
+        color: #e44c65;
+        width: 20px;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-link {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(228, 76, 101, 0.3);
+      }
+
+      .social-link:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.4);
+      }
+
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      .content-section {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 15px;
+        padding: 2.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .content-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+      }
+
+      .content-section h3 {
+        color: #ffffff;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .content-section .icon {
+        font-size: 1.5rem;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .content-section p {
+        color: #b8b8b8;
+        line-height: 1.8;
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .skill-category {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-5px);
+      }
+
+      .skill-category h4 {
+        color: #e44c65;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .skill-category .skill-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .skills-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .skills-list li {
+        color: #ccc;
+        padding: 0.3rem 0;
+        font-size: 0.95rem;
+      }
+
+      .experience-timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .experience-timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 2rem;
+        padding-left: 1.5rem;
+      }
+
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -1.5rem;
+        top: 0.5rem;
+        width: 12px;
+        height: 12px;
+        background: #e44c65;
+        border-radius: 50%;
+        border: 3px solid #1e2028;
+      }
+
+      .timeline-item h5 {
+        color: #e44c65;
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .timeline-item .date {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-item p {
+        color: #b8b8b8;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .cta-section {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        border-radius: 20px;
+        padding: 3rem;
+        text-align: center;
+        margin-top: 4rem;
+      }
+
+      .cta-section h3 {
+        color: #ffffff;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        color: #b8b8b8;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .cta-button:hover {
+        background: linear-gradient(45deg, #d63651, #e44c65);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(228, 76, 101, 0.4);
+      }
+
+      .cta-button.secondary {
+        background: transparent;
+        border: 2px solid #e44c65;
+        color: #e44c65;
+      }
+
+      .cta-button.secondary:hover {
+        background: #e44c65;
+        color: white;
+      }
+
+      @media screen and (max-width: 768px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .profile-card {
+          position: static;
+        }
+
+        .about-hero h1 {
+          font-size: 2rem;
+        }
+
+        .about-hero .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+    <body class="is-preload">
+    <!-- Page Wrapper -->
     <div id="page-wrapper">
       <!-- Header -->
       <header id="header">
-        <h1 id="logo"><a href="index.html">James Dagless</a></h1>
+        <h1><a href="index.html">James Dagless</a></h1>
         <nav id="nav">
           <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="current">About</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
             <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="contact.html" class="button primary">Hire Me</a></li>
           </ul>
         </nav>
       </header>
 
       <!-- Main -->
-      <section class="wrapper style1 special">
+      <div id="main" class="wrapper style1">
         <div class="container">
-          <header class="major">
-            <h2>About Me</h2>
-            <p>
-              Tech-driven and travel-inspired, I mix cybersecurity knowledge
-              with creative web development.
-            </p>
-          </header>
-          <div class="row gtr-150">
-            <div class="col-6 col-12-medium">
-              <h3>Background</h3>
-              <p>
-                I'm a First-Class Cybersecurity graduate with a strong
-                foundation in technical problem-solving. Over the past few
-                years, I’ve focused on web development and SEO strategy —
-                building websites that aren’t just beautiful, but smart under
-                the hood. I work with HTML, CSS, JavaScript, and analytics tools
-                to deliver solid, responsive sites.
-              </p>
+          <!-- Hero Section -->
+          <section class="about-hero">
+            <h1>About James Dagless</h1>
+            <p class="subtitle">Web Developer & Cybersecurity Graduate</p>
+            <p>Passionate about creating innovative digital solutions that bridge technology and user experience</p>
+          </section>
+
+          <!-- About Content -->
+          <div class="about-container">
+            <div class="about-grid">
+              <!-- Profile Card -->
+              <div class="profile-card">
+                <div class="profile-image">
+                  <img src="images/1667332712546.jpeg" alt="James Dagless" />
+                </div>
+                <h3>James Dagless</h3>
+                <p class="role">Full-Stack Developer</p>
+                <p class="location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  United Kingdom
+                </p>
+                
+                <ul class="quick-facts">
+                  <li><i class="fas fa-graduation-cap"></i> Cybersecurity Graduate</li>
+                  <li><i class="fas fa-code"></i> 3+ Years Experience</li>
+                  <li><i class="fas fa-coffee"></i> Coffee Enthusiast</li>
+                  <li><i class="fas fa-rocket"></i> Always Learning</li>
+                </ul>
+
+                <div class="social-links">
+                  <a href="https://github.com/jamesdagless" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="https://linkedin.com/in/jamesdagless" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a href="https://twitter.com/jamesdagless" class="social-link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a href="mailto:james@jamesdagless.co.uk" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Content Sections -->
+              <div class="about-content">
+                <!-- Background Section -->
+                <div class="content-section">
+                  <h3><i class="fas fa-user icon"></i>Background</h3>
+                  <p>
+                    I'm a passionate web developer with a unique background in cybersecurity. After completing my degree in Cybersecurity, 
+                    I discovered my true calling in web development and have been dedicated to creating innovative digital solutions ever since.
+                  </p>
+                  <p>
+                    My journey began with a fascination for how technology can solve real-world problems. This curiosity led me to explore 
+                    various programming languages and frameworks, eventually specializing in modern web technologies that enable me to build 
+                    scalable, secure, and user-friendly applications.
+                  </p>
+                </div>
+
+                <!-- Philosophy Section -->
+                <div class="content-section">
+                  <h3><i class="fas fa-lightbulb icon"></i>Philosophy & Approach</h3>
+                  <p>
+                    I believe in the power of clean, efficient code and user-centered design. Every project I undertake is approached with 
+                    meticulous attention to detail, ensuring that both the technical implementation and user experience exceed expectations.
+                  </p>
+                  <p>
+                    My cybersecurity background gives me a unique perspective on web development, allowing me to build applications that are 
+                    not only functional and beautiful but also secure and resilient. I'm committed to staying current with the latest 
+                    technologies and best practices in the ever-evolving web development landscape.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="col-6 col-12-medium">
-              <h3>Mindset</h3>
-              <p>
-                I’m constantly learning and adapting. I believe in clean code,
-                fast loading times, and user-first thinking. I also love
-                balancing tech life with travel, which fuels much of my creative
-                energy. Whether it’s analysing site traffic or debugging a CSS
-                issue in a jungle hostel — I’m in my zone.
-              </p>
+
+            <!-- Skills Section -->
+            <div class="content-section">
+              <h3><i class="fas fa-tools icon"></i>Technical Skills</h3>
+              <div class="skills-grid">
+                <div class="skill-category">
+                  <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <h4>Frontend Development</h4>
+                  <ul class="skills-list">
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React & Vue.js</li>
+                    <li>Responsive Design</li>
+                    <li>Bootstrap & Tailwind</li>
+                  </ul>
+                </div>
+
+                <div class="skill-category">
+                  <div class="skill-icon">
+                    <i class="fas fa-server"></i>
+                  </div>
+                  <h4>Backend Development</h4>
+                  <ul class="skills-list">
+                    <li>Node.js & Express</li>
+                    <li>PHP & Laravel</li>
+                    <li>Python & Django</li>
+                    <li>RESTful APIs</li>
+                    <li>Database Design</li>
+                  </ul>
+                </div>
+
+                <div class="skill-category">
+                  <div class="skill-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <h4>Security & Tools</h4>
+                  <ul class="skills-list">
+                    <li>Web Security</li>
+                    <li>Git & Version Control</li>
+                    <li>Docker & DevOps</li>
+                    <li>Testing & QA</li>
+                    <li>Performance Optimization</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-          <hr />
-          <div class="row">
-            <div class="col-12">
-              <h3>Let's Connect</h3>
+
+            <!-- Experience Section -->
+            <div class="content-section">
+              <h3><i class="fas fa-briefcase icon"></i>Experience & Journey</h3>
+              <div class="experience-timeline">
+                <div class="timeline-item">
+                  <h5>Freelance Web Developer</h5>
+                  <p class="date">2022 - Present</p>
+                  <p>
+                    Building custom websites and web applications for clients across various industries. 
+                    Specializing in modern, responsive designs with focus on performance and security.
+                  </p>
+                </div>
+
+                <div class="timeline-item">
+                  <h5>Cybersecurity Studies</h5>
+                  <p class="date">2019 - 2022</p>
+                  <p>
+                    Completed comprehensive studies in cybersecurity, gaining valuable insights into web security, 
+                    network protection, and risk assessment that now inform my development practices.
+                  </p>
+                </div>
+
+                <div class="timeline-item">
+                  <h5>Self-Taught Development</h5>
+                  <p class="date">2020 - Ongoing</p>
+                  <p>
+                    Continuously expanding my skills through online courses, tutorials, and hands-on projects. 
+                    Always staying current with the latest web technologies and industry best practices.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+              <h3>Let's Work Together</h3>
               <p>
-                If you’re into SEO, web design, or just want to chat tech while
-                swapping travel stories — I’m all ears.
+                Ready to bring your ideas to life? I'm always excited to take on new challenges and collaborate 
+                on innovative projects. Whether you need a complete website overhaul or a custom web application, 
+                let's discuss how we can make it happen.
               </p>
-              <ul class="icons">
-                <li>
-                  <a href="#" class="icon brands fa-linkedin-in"
-                    ><span class="label">LinkedIn</span></a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="icon brands fa-github"
-                    ><span class="label">GitHub</span></a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="icon solid fa-envelope"
-                    ><span class="label">Email</span></a
-                  >
-                </li>
-              </ul>
+              <div class="cta-buttons">
+                <a href="contact.html" class="cta-button">
+                  <i class="fas fa-envelope"></i>
+                  Get In Touch
+                </a>
+                <a href="projects.html" class="cta-button secondary">
+                  <i class="fas fa-eye"></i>
+                  View My Work
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <!-- Footer -->
-      <footer id="footer">
-        <ul class="copyright">
-          <li>&copy; James Dagless. All rights reserved.</li>
-          <li>Design: HTML5 UP</li>
-        </ul>
+      <footer id="footer" class="modern">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Get In Touch</h3>
+              <p>
+                Ready to start your next project? I'd love to hear from you and
+                discuss how we can bring your ideas to life.
+              </p>
+            </section>
+            <section>
+              <h4>Follow Me</h4>
+              <ul class="plain">
+                <li>
+                  <a href="https://github.com/jamesdagless"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/jamesdagless"
+                    ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/jamesdagless"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h4>Contact Info</h4>
+              <ul class="alt">
+                <li>
+                  <h3>Email</h3>
+                  <a href="mailto:james@jamesdagless.co.uk"
+                    >james@jamesdagless.co.uk</a
+                  >
+                </li>
+                <li>
+                  <h3>Phone</h3>
+                  <p>Available upon request</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 James Dagless. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
+
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -107,35 +678,5 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-      var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-      (function () {
-        var s1 = document.createElement("script"),
-          s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = "https://embed.tawk.to/687051dbbaa3a2190a75cc65/1ivrbvgn9";
-        s1.charset = "UTF-8";
-        s1.setAttribute("crossorigin", "*");
-        s0.parentNode.insertBefore(s1, s0);
-      })();
-    </script>
-    <!--End of Tawk.to Script-->
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-YGSCEDLDEY"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-YGSCEDLDEY");
-    </script>
   </body>
 </html>

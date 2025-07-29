@@ -8,6 +8,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="James Dagless" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-something"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    
+    <style>
+      .blog-hero {
+        background: linear-gradient(135deg, #0f1117 0%, #1a1d26 50%, #2a2d3a 100%);
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-hero h1 {
+        font-size: 2.5rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+        line-height: 1.2;
+      }
+
+      .blog-hero .tech-stack {
+        font-size: 1.1rem;
+        color: #e44c65;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+        font-weight: 500;
+      }
+
+      .blog-hero .date {
+        color: #b8b8b8;
+        font-size: 0.95rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .back-button {
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(228, 76, 101, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 2rem 0;
+      }
+
+      .back-button:hover {
+        background: linear-gradient(45deg, #d63651, #e44c65);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(228, 76, 101, 0.4);
+      }
+
+      .blog-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      .blog-content {
+        background: linear-gradient(145deg, #2a2d3a, #1e2028);
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+      }
+
+      .blog-content h2 {
+        color: #ffffff;
+        font-size: 2rem;
+        margin: 2rem 0 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .blog-content h3::before {
+        content: '▶';
+        color: #e44c65;
+        font-size: 0.8rem;
+      }
+
+      .blog-content ul {
+        color: #b8b8b8;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .blog-content li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .blog-content li::before {
+        content: '●';
+        color: #e44c65;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .blog-content figure {
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .blog-content figcaption {
+        font-style: italic;
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        border-left: 3px solid #e44c65;
+      }
+
+      .section-divider {
+        height: 2px;
+        background: linear-gradient(45deg, #e44c65, #ff6b8a);
+        margin: 3rem 0;
+        border-radius: 1px;
+        opacity: 0.3;
+      }
+
+      .key-learnings {
+        background: linear-gradient(145deg, #1a1d26, #0f1117);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+        border-left: 4px solid #e44c65;
+      }
+
+      .key-learnings h3 {
+        color: #e44c65;
+        margin-top: 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        .blog-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-content {
+          padding: 2rem;
+        }
+
+        .blog-container {
+          padding: 2rem 1rem;
+        }
+      }
+    </style>
     <style>
       .blog-content img {
         max-width: 100%;
@@ -53,101 +229,188 @@
         <h1 id="logo"><a href="../index.html">James Dagless</a></h1>
         <nav id="nav">
           <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
             <li><a href="../services.html">Services</a></li>
             <li><a href="../projects.html">Projects</a></li>
-            <li><a href="../about.html">About</a></li>
+            <li><a href="../blog.html" class="current">Blog</a></li>
             <li><a href="../contact.html">Contact</a></li>
-            <li><a href="../index.html">Blog</a></li>
-            <li>
-              <a href="../contact.html" class="button primary">Hire Me</a>
-            </li>
+            <li><a href="../contact.html" class="button primary">Hire Me</a></li>
           </ul>
         </nav>
       </header>
 
-    <a href="../blog.html" class="button">← Back to Blog</a>
+          </header>
 
+      <!-- Blog Hero -->
+      <section class="blog-hero">
+        <h1>Setting Up Google Search Console With Your Site</h1>
+        <p class="tech-stack">
+          <i class="fab fa-google"></i> Google Search Console + 
+          <i class="fas fa-search"></i> SEO + 
+          <i class="fas fa-chart-line"></i> Analytics + 
+          <i class="fas fa-sitemap"></i> Site Verification
+        </p>
+        <p class="date">
+          <i class="fas fa-calendar"></i> Published: October 2023
+        </p>
+      </section>
 
-      <!-- Main Blog Content -->
-      <section class="wrapper style1">
-        <div class="container blog-content">
-          <header class="major">
-            <h2>
-            How to set up Google Search Console with GitHub
-            </h2>
-            <p>In this blog I will show you how simple it is to add Google Search Console!</p>
-        </header>
+      <!-- Main Content -->
+      <div class="blog-container">
+        <a href="../blog.html" class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Blog
+        </a>
 
-        <ul>
-            <li><strong>Add Your Site</strong></li>
-            <br>
-            <ul>
-                <li>Go to Google Search Console and add your website using the **URL Prefix** option.</li>
-                <li>Click <strong>Continue</strong> to proceed to verification.</li>
-            </ul>
+        <div class="blog-content">
+          <p>
+            Setting up Google Search Console (formerly Google Webmaster Tools) is a free and essential step for anyone who wants to optimize their website's SEO. This guide will walk you through the entire setup process for your GitHub-hosted portfolio.
+          </p>
 
-            <li><strong>Verify Ownership</strong></li>
-            <ul>
-                <li>Download the provided `.html` verification file.</li>
-                <li>Place the file in your site’s <strong>root directory</strong>. If you're using Visual Studio Code, drop it directly into your repo folder.</li>
-            </ul>
+          <div class="section-divider"></div>
 
-            <li><strong>Upload to GitHub</strong></li>
-            <ul>
-                <li>Open your terminal and run:</li>
-                <li>`git add googleea4877ce6dc12412.html git commit -m "Add Google Search Console verification" git push origin main`</li>
-            </ul>
+          <h3><i class="fas fa-plus-circle"></i> Step 1: Add Your Site</h3>
+          <ul>
+            <li>Go to Google Search Console and add your website using the <strong>URL Prefix</strong> option</li>
+            <li>Click <strong>Continue</strong> to proceed to verification</li>
+          </ul>
 
-            <li><strong>Complete Verification</strong></li>
-            <ul>
-                <li>Back in Google Search Console, click <strong>Verify</strong>.</li>
-                <li>If it doesn’t work immediately, wait a moment and try again. GitHub can take a few seconds to update.</li>
-            </ul>
-        </ul>
+          <figure>
+            <img src="images/04.Search-console/searchConsole1.png" alt="Adding site to Google Search Console" />
+            <figcaption>
+              Adding your website URL to Google Search Console
+            </figcaption>
+          </figure>
 
-        <h3>Practical View</h3>
-        <p>First add you websites URL into the PreFix and click 'select' once you've gone through this stage you will be directed into a verification area. Here you will be required to download the html file and upload it onto your root directory of the website.</p>
-        <img src="images/04.Search-console/searchConsole1.png" alt="">
+          <div class="section-divider"></div>
 
-        <p>As you can see here I've just dropped the file into my root directory inside my visual studio code.</p>
-        <img src="images/04.Search-console/searchConsole2.png" alt="">
+          <h3><i class="fas fa-shield-alt"></i> Step 2: Verify Ownership</h3>
+          <ul>
+            <li>Download the provided <code>.html</code> verification file</li>
+            <li>Place the file in your site's <strong>root directory</strong>. If you're using Visual Studio Code, drop it directly into your repo folder</li>
+          </ul>
 
-        <p>I then used the commands</p>
-        <pre><code>
-        git add 'googleea4877ce6dc12412.html'
-        git commit -m "Google Search Console"
-        git push origin main
-        </code></pre>
+          <figure>
+            <img src="images/04.Search-console/searchConsole2.png" alt="HTML file verification method" />
+            <figcaption>
+              Download the HTML verification file
+            </figcaption>
+          </figure>
 
-        <p>To upload this file directly into my GitHub file where the portfolio lives. Open your GitHub to verify that the file has correctly uploaded and then click verify. You may need to wait a few moments for GitHub to catch up with the upload by retrying the verification a few times.</p>
-        <img src="images/04.Search-console/searchConsole4.png" alt="">
+          <div class="section-divider"></div>
 
-        <p>There you have it, you should now be verified as the website owner and have access to the performance and other options linked to your website With Google Search Console!</p>
-        <img src="images/04.Search-console/searchConsole6.png" alt="">
+          <h3><i class="fab fa-github"></i> Step 3: Upload to GitHub</h3>
+          <p>Open your terminal and run:</p>
+          <pre><code>git add googleea4877ce6dc12412.html
+git commit -m "Add Google Search Console verification"
+git push origin main</code></pre>
 
-        </section>
+          <figure>
+            <img src="images/04.Search-console/searchConsole3.png" alt="Verification file in repository" />
+            <figcaption>
+              The verification file added to your repository
+            </figcaption>
+          </figure>
+
+          <div class="section-divider"></div>
+
+          <h3><i class="fas fa-check-circle"></i> Step 4: Complete Verification</h3>
+          <ul>
+            <li>Back in Google Search Console, click <strong>Verify</strong></li>
+          </ul>
+
+          <figure>
+            <img src="images/04.Search-console/searchConsole4.png" alt="Verification successful" />
+            <figcaption>
+              Successful verification message
+            </figcaption>
+          </figure>
+
+          <div class="section-divider"></div>
+
+          <h3><i class="fas fa-eye"></i> Visual Walkthrough</h3>
+          <p>Here's what the process looks like step by step:</p>
+
+          <figure>
+            <img src="images/04.Search-console/searchConsole5.png" alt="File in VS Code directory" />
+            <figcaption>
+              The verification file added to your VS Code root directory
+            </figcaption>
+          </figure>
+
+          <p>After uploading the file to GitHub, you should see it in your repository. Then click verify in Google Search Console.</p>
+
+          <figure>
+            <img src="images/04.Search-console/searchConsole6.png" alt="Google Search Console dashboard" />
+            <figcaption>
+              Success! Your Google Search Console dashboard is now active
+            </figcaption>
+          </figure>
+
+          <div class="key-learnings">
+            <h3><i class="fas fa-lightbulb"></i> What You'll Get</h3>
+            <p>
+              Once verified, you'll have access to valuable SEO data including search performance, indexing status, mobile usability, and more. Google Search Console is essential for monitoring your website's presence in Google search results.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      </div>
 
 
       <!-- Footer -->
-      <footer id="footer">
-        <ul class="icons">
-          <li>
-            <a href="#" class="icon brands fa-linkedin-in"
-              ><span class="label">LinkedIn</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-github"
-              ><span class="label">GitHub</span></a
-            >
-          </li>
-          <li>
-            <a href="#" class="icon solid fa-envelope"
-              ><span class="label">Email</span></a
-            >
-          </li>
-        </ul>
-        <p>&copy; James Dagless. All rights reserved.</p>
+      <footer id="footer" class="modern">
+        <div class="inner">
+          <div class="content">
+            <section>
+              <h3>Get In Touch</h3>
+              <p>
+                Ready to start your next project? I'd love to hear from you and
+                discuss how we can bring your ideas to life.
+              </p>
+            </section>
+            <section>
+              <h4>Follow Me</h4>
+              <ul class="plain">
+                <li>
+                  <a href="https://github.com/jamesdagless"
+                    ><i class="fab fa-github"></i> GitHub</a
+                  >
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/jamesdagless"
+                    ><i class="fab fa-linkedin-in"></i> LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://twitter.com/jamesdagless"
+                    ><i class="fab fa-twitter"></i> Twitter</a
+                  >
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h4>Contact Info</h4>
+              <ul class="alt">
+                <li>
+                  <h3>Email</h3>
+                  <a href="mailto:james@jamesdagless.co.uk"
+                    >james@jamesdagless.co.uk</a
+                  >
+                </li>
+                <li>
+                  <h3>Phone</h3>
+                  <p>Available upon request</p>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 James Dagless. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
     <!-- Google tag (gtag.js) -->
